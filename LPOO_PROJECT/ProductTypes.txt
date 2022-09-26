@@ -1,0 +1,10 @@
+Placa Base
+LED
+Cables
+Baterias
+Capacitores
+Inductores
+Pantallas
+Circuitos Integrados
+Teclados
+Modulos
