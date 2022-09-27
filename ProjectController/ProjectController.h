@@ -26,6 +26,8 @@ namespace ProjectController {
 			static Product^ QueryProductById(int productId); // consulta solo por el producto que tiene determinado id
 			static List<String^>^ QueryProductTypes();
 			static String^ QueryTypeByName(String^ typeName);
+			static void PersistProducts();
+			static void LoadProductsData();
 
 			//CRUD EMPRESAS PROVEEDORAS
 			static int AddSellerCompany(SellerCompany^ sellerCompany);

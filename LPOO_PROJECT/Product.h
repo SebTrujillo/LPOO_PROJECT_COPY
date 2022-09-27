@@ -5,6 +5,7 @@
 
 using namespace System;
 namespace  LPOOPROJECT {
+    [Serializable]
     public ref class Product {
     public:
         property int Id;

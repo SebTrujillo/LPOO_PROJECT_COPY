@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfProduct xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Product>
+    <Rating>0</Rating>
+    <IsLearning>false</IsLearning>
+    <Type>Capacitores</Type>
+    <Stock>200</Stock>
+    <Price>10.5</Price>
+    <Description>CAPACITOR</Description>
+    <Name>CAPACITOR</Name>
+    <Id>2</Id>
+  </Product>
+  <Product>
+    <Rating>0</Rating>
+    <IsLearning>false</IsLearning>
+    <Type>Modulos</Type>
+    <Stock>30</Stock>
+    <Price>20.3</Price>
+    <Description>Adaptador bluetooth de alta rapidez y bajo tiempo de latencia</Description>
+    <Name>Adaptador bluetooth 5.1</Name>
+    <Id>3</Id>
+  </Product>
+  <Product>
+    <Rating>0</Rating>
+    <IsLearning>true</IsLearning>
+    <Type>Capacitores</Type>
+    <Stock>2</Stock>
+    <Price>2</Price>
+    <Description>2</Description>
+    <Name>2</Name>
+    <Id>4</Id>
+  </Product>
+  <Product>
+    <Rating>0</Rating>
+    <IsLearning>true</IsLearning>
+    <Type>LED</Type>
+    <Stock>100</Stock>
+    <Price>100</Price>
+    <Description>PLACEHOLDER</Description>
+    <Name>LED PLACEHOLDER</Name>
+    <Id>7</Id>
+  </Product>
+  <Product>
+    <Rating>0</Rating>
+    <IsLearning>true</IsLearning>
+    <Type>Inductores</Type>
+    <Stock>200</Stock>
+    <Price>200</Price>
+    <Description>PLACEHOLDER</Description>
+    <Name>INDUCTOR PLACEHOLDER</Name>
+    <Id>9</Id>
+  </Product>
+  <Product>
+    <Rating>0</Rating>
+    <IsLearning>true</IsLearning>
+    <Type>Modulos</Type>
+    <Stock>145</Stock>
+    <Price>6</Price>
+    <Description>LED DE ALTA ILUMINACION</Description>
+    <Name>LED BLANCO 5V</Name>
+    <Id>1</Id>
+  </Product>
+</ArrayOfProduct>
