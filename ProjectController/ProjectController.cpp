@@ -18,6 +18,20 @@ void ProjectController::Controller::LoadProductsData() {
     sr->Close();
 }
 
+void ProjectController::Controller::PersistSellerCompanies() {
+    XmlSerializer^ writer = gcnew XmlSerializer(sellerCompanyList->GetType());
+    StreamWriter^ sw = gcnew StreamWriter("SellerCompanies.xml");
+    writer->Serialize(sw,sellerCompanyList);
+    sw->Close();
+}
+
+void ProjectController::Controller::LoadSellerCompaniesData() {
+    XmlSerializer^ Reader = gcnew XmlSerializer(sellerCompanyList->GetType());
+    StreamReader^ sr = gcnew StreamReader("SellerCompanies.xml");
+    sellerCompanyList = (List<SellerCompany^>^) Reader->Deserialize(sr);
+    sr->Close();
+}
+
 
 int ProjectController::Controller::AddProduct(Product^ product)
 {
@@ -100,6 +114,7 @@ String^ ProjectController::Controller::QueryTypeByName(String^ typeName)
 int ProjectController::Controller::AddSellerCompany(SellerCompany^ sellerCompany)
 {
     sellerCompanyList->Add(sellerCompany);
+    PersistSellerCompanies();
     return 1;
 }
 
@@ -108,8 +123,10 @@ int ProjectController::Controller::UpdateSellerCompany(SellerCompany^ sellerComp
     for (int i = 0; i < sellerCompanyList->Count; i++)
         if (sellerCompany->Id == sellerCompanyList[i]->Id) {
             sellerCompanyList[i] = sellerCompany;
+            PersistSellerCompanies();
             return 1;
         }
+    PersistSellerCompanies();
     return 0;
 }
 
@@ -118,13 +135,16 @@ int ProjectController::Controller::DeleteSellerCompany(int sellerCompanyId)
     for (int i = 0; i < sellerCompanyList->Count; i++)
         if (sellerCompanyId == sellerCompanyList[i]->Id) {
             sellerCompanyList->RemoveAt(i);
+            PersistSellerCompanies();
             return 1;
         }
+    PersistSellerCompanies();
     return 0;
 }
 
 List<SellerCompany^>^ ProjectController::Controller::QueryAllSellerCompanies()
 {
+    LoadSellerCompaniesData();
     List<SellerCompany^>^ activeSellerList = gcnew List<SellerCompany^>(); // se asume que todos estan activos si estan
     for (int i = 0; i < sellerCompanyList->Count; i++) { // en el sistema
             activeSellerList->Add(sellerCompanyList[i]);

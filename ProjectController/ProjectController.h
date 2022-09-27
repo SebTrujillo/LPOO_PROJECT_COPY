@@ -35,5 +35,7 @@ namespace ProjectController {
 			static int DeleteSellerCompany(int sellerCompanyId); 
 			static List<SellerCompany^>^ QueryAllSellerCompanies(); 
 			static SellerCompany^ QuerySellerCompanyById(int sellerCompanyId);
+			static void PersistSellerCompanies();
+			static void LoadSellerCompaniesData();
 	};
 }

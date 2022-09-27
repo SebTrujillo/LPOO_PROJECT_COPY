@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfSellerCompany xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SellerCompany>
+    <Email>anonimosSAC@gmail.com</Email>
+    <PhoneNumber>999999999</PhoneNumber>
+    <Address>ELM STREET 214</Address>
+    <Name>ANONIMOS SAC</Name>
+    <Id>1</Id>
+    <Sent_Invoice>false</Sent_Invoice>
+    <RUC>999666999</RUC>
+  </SellerCompany>
+  <SellerCompany>
+    <Email>importconnect@hotmail.com</Email>
+    <PhoneNumber>111222333</PhoneNumber>
+    <Address>Av, La Marina 3788</Address>
+    <Name>IMPORTACIONES CONNECT</Name>
+    <Id>2</Id>
+    <Sent_Invoice>false</Sent_Invoice>
+    <RUC>1010101014</RUC>
+  </SellerCompany>
+</ArrayOfSellerCompany>

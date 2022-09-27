@@ -89,6 +89,9 @@ namespace ProjectApp {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ productStock;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ productPrice;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ productLearn;
+	private: System::Windows::Forms::ToolStripMenuItem^ salirToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ reporteToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ consultasToolStripMenuItem;
 
 	private:
 		/// <summary>
@@ -119,20 +122,23 @@ namespace ProjectApp {
 			this->btnUpdate = (gcnew System::Windows::Forms::Button());
 			this->btnDelete = (gcnew System::Windows::Forms::Button());
 			this->dgvCompProduct = (gcnew System::Windows::Forms::DataGridView());
-			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
-			this->archivoToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->nuevoProductoToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->modificarProductoToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->cmbType = (gcnew System::Windows::Forms::ComboBox());
-			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->label7 = (gcnew System::Windows::Forms::Label());
-			this->cbxLearn = (gcnew System::Windows::Forms::CheckBox());
 			this->productID = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->productName = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->productType = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->productStock = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->productPrice = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->productLearn = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
+			this->archivoToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->nuevoProductoToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->modificarProductoToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->salirToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->cmbType = (gcnew System::Windows::Forms::ComboBox());
+			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->label7 = (gcnew System::Windows::Forms::Label());
+			this->cbxLearn = (gcnew System::Windows::Forms::CheckBox());
+			this->reporteToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->consultasToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbCompProduct))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvCompProduct))->BeginInit();
 			this->menuStrip1->SuspendLayout();
@@ -281,77 +287,6 @@ namespace ProjectApp {
 			this->dgvCompProduct->TabIndex = 16;
 			this->dgvCompProduct->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &CompanyProduct::dgvCompProduct_CellClick);
 			// 
-			// menuStrip1
-			// 
-			this->menuStrip1->AllowMerge = false;
-			this->menuStrip1->ImageScalingSize = System::Drawing::Size(20, 20);
-			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->archivoToolStripMenuItem });
-			this->menuStrip1->Location = System::Drawing::Point(0, 0);
-			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(965, 28);
-			this->menuStrip1->TabIndex = 17;
-			this->menuStrip1->Text = L"menuStrip1";
-			// 
-			// archivoToolStripMenuItem
-			// 
-			this->archivoToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
-				this->nuevoProductoToolStripMenuItem,
-					this->modificarProductoToolStripMenuItem
-			});
-			this->archivoToolStripMenuItem->Name = L"archivoToolStripMenuItem";
-			this->archivoToolStripMenuItem->Size = System::Drawing::Size(73, 24);
-			this->archivoToolStripMenuItem->Text = L"Archivo";
-			// 
-			// nuevoProductoToolStripMenuItem
-			// 
-			this->nuevoProductoToolStripMenuItem->Name = L"nuevoProductoToolStripMenuItem";
-			this->nuevoProductoToolStripMenuItem->Size = System::Drawing::Size(220, 26);
-			this->nuevoProductoToolStripMenuItem->Text = L"Nuevo Producto";
-			this->nuevoProductoToolStripMenuItem->Click += gcnew System::EventHandler(this, &CompanyProduct::nuevoProductoToolStripMenuItem_Click);
-			// 
-			// modificarProductoToolStripMenuItem
-			// 
-			this->modificarProductoToolStripMenuItem->Name = L"modificarProductoToolStripMenuItem";
-			this->modificarProductoToolStripMenuItem->Size = System::Drawing::Size(220, 26);
-			this->modificarProductoToolStripMenuItem->Text = L"Modificar Producto";
-			this->modificarProductoToolStripMenuItem->Click += gcnew System::EventHandler(this, &CompanyProduct::modificarProductoToolStripMenuItem_Click);
-			// 
-			// cmbType
-			// 
-			this->cmbType->FormattingEnabled = true;
-			this->cmbType->Location = System::Drawing::Point(214, 122);
-			this->cmbType->Name = L"cmbType";
-			this->cmbType->Size = System::Drawing::Size(187, 24);
-			this->cmbType->TabIndex = 18;
-			// 
-			// button1
-			// 
-			this->button1->Location = System::Drawing::Point(631, 216);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(138, 41);
-			this->button1->TabIndex = 19;
-			this->button1->Text = L"Agregar imagen";
-			this->button1->UseVisualStyleBackColor = true;
-			// 
-			// label7
-			// 
-			this->label7->AutoSize = true;
-			this->label7->Location = System::Drawing::Point(46, 294);
-			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(247, 16);
-			this->label7->TabIndex = 22;
-			this->label7->Text = L"Producto diseñado para el aprendizaje\?";
-			// 
-			// cbxLearn
-			// 
-			this->cbxLearn->AutoSize = true;
-			this->cbxLearn->Location = System::Drawing::Point(337, 294);
-			this->cbxLearn->Name = L"cbxLearn";
-			this->cbxLearn->Size = System::Drawing::Size(41, 20);
-			this->cbxLearn->TabIndex = 23;
-			this->cbxLearn->Text = L"Si";
-			this->cbxLearn->UseVisualStyleBackColor = true;
-			// 
 			// productID
 			// 
 			this->productID->HeaderText = L"ID";
@@ -393,6 +328,101 @@ namespace ProjectApp {
 			this->productLearn->MinimumWidth = 6;
 			this->productLearn->Name = L"productLearn";
 			this->productLearn->Width = 125;
+			// 
+			// menuStrip1
+			// 
+			this->menuStrip1->AllowMerge = false;
+			this->menuStrip1->ImageScalingSize = System::Drawing::Size(20, 20);
+			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+				this->archivoToolStripMenuItem,
+					this->reporteToolStripMenuItem
+			});
+			this->menuStrip1->Location = System::Drawing::Point(0, 0);
+			this->menuStrip1->Name = L"menuStrip1";
+			this->menuStrip1->Size = System::Drawing::Size(965, 28);
+			this->menuStrip1->TabIndex = 17;
+			this->menuStrip1->Text = L"menuStrip1";
+			// 
+			// archivoToolStripMenuItem
+			// 
+			this->archivoToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
+				this->nuevoProductoToolStripMenuItem,
+					this->modificarProductoToolStripMenuItem, this->salirToolStripMenuItem
+			});
+			this->archivoToolStripMenuItem->Name = L"archivoToolStripMenuItem";
+			this->archivoToolStripMenuItem->Size = System::Drawing::Size(73, 24);
+			this->archivoToolStripMenuItem->Text = L"Archivo";
+			// 
+			// nuevoProductoToolStripMenuItem
+			// 
+			this->nuevoProductoToolStripMenuItem->Name = L"nuevoProductoToolStripMenuItem";
+			this->nuevoProductoToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->nuevoProductoToolStripMenuItem->Text = L"Nuevo Producto";
+			this->nuevoProductoToolStripMenuItem->Click += gcnew System::EventHandler(this, &CompanyProduct::nuevoProductoToolStripMenuItem_Click);
+			// 
+			// modificarProductoToolStripMenuItem
+			// 
+			this->modificarProductoToolStripMenuItem->Name = L"modificarProductoToolStripMenuItem";
+			this->modificarProductoToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->modificarProductoToolStripMenuItem->Text = L"Modificar Producto";
+			this->modificarProductoToolStripMenuItem->Click += gcnew System::EventHandler(this, &CompanyProduct::modificarProductoToolStripMenuItem_Click);
+			// 
+			// salirToolStripMenuItem
+			// 
+			this->salirToolStripMenuItem->Name = L"salirToolStripMenuItem";
+			this->salirToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->salirToolStripMenuItem->Text = L"Salir";
+			this->salirToolStripMenuItem->Click += gcnew System::EventHandler(this, &CompanyProduct::salirToolStripMenuItem_Click);
+			// 
+			// cmbType
+			// 
+			this->cmbType->FormattingEnabled = true;
+			this->cmbType->Location = System::Drawing::Point(214, 122);
+			this->cmbType->Name = L"cmbType";
+			this->cmbType->Size = System::Drawing::Size(187, 24);
+			this->cmbType->TabIndex = 18;
+			// 
+			// button1
+			// 
+			this->button1->Location = System::Drawing::Point(631, 216);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(138, 41);
+			this->button1->TabIndex = 19;
+			this->button1->Text = L"Agregar imagen";
+			this->button1->UseVisualStyleBackColor = true;
+			// 
+			// label7
+			// 
+			this->label7->AutoSize = true;
+			this->label7->Location = System::Drawing::Point(46, 294);
+			this->label7->Name = L"label7";
+			this->label7->Size = System::Drawing::Size(247, 16);
+			this->label7->TabIndex = 22;
+			this->label7->Text = L"Producto diseñado para el aprendizaje\?";
+			// 
+			// cbxLearn
+			// 
+			this->cbxLearn->AutoSize = true;
+			this->cbxLearn->Location = System::Drawing::Point(337, 294);
+			this->cbxLearn->Name = L"cbxLearn";
+			this->cbxLearn->Size = System::Drawing::Size(41, 20);
+			this->cbxLearn->TabIndex = 23;
+			this->cbxLearn->Text = L"Si";
+			this->cbxLearn->UseVisualStyleBackColor = true;
+			// 
+			// reporteToolStripMenuItem
+			// 
+			this->reporteToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->consultasToolStripMenuItem });
+			this->reporteToolStripMenuItem->Name = L"reporteToolStripMenuItem";
+			this->reporteToolStripMenuItem->Size = System::Drawing::Size(76, 24);
+			this->reporteToolStripMenuItem->Text = L"Reporte";
+			// 
+			// consultasToolStripMenuItem
+			// 
+			this->consultasToolStripMenuItem->Name = L"consultasToolStripMenuItem";
+			this->consultasToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->consultasToolStripMenuItem->Text = L"Consultas";
+			this->consultasToolStripMenuItem->Click += gcnew System::EventHandler(this, &CompanyProduct::consultasToolStripMenuItem_Click);
 			// 
 			// CompanyProduct
 			// 
@@ -547,6 +577,14 @@ private: System::Void CompanyProduct_Load(System::Object^ sender, System::EventA
 	btnDelete->Enabled = false;
 	btnAdd->Enabled = false;
 	
+}
+private: System::Void salirToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->Close();
+}
+private: System::Void consultasToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	btnUpdate->Enabled = false;
+	btnDelete->Enabled = false;
+	btnAdd->Enabled = false;
 }
 };
 }
