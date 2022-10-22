@@ -131,6 +131,9 @@
     <ClInclude Include="CompanyProduct.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="LoginCompany.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Main.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -143,6 +146,7 @@
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="CompanyProduct.cpp" />
+    <ClCompile Include="LoginCompany.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -174,6 +178,9 @@
   <ItemGroup>
     <EmbeddedResource Include="CompanyProduct.resx">
       <DependentUpon>CompanyProduct.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginCompany.resx">
+      <DependentUpon>LoginCompany.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.h</DependentUpon>

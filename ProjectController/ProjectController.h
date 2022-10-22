@@ -37,5 +37,8 @@ namespace ProjectController {
 			static SellerCompany^ QuerySellerCompanyById(int sellerCompanyId);
 			static void PersistSellerCompanies();
 			static void LoadSellerCompaniesData();
+
+			//Autenticación de Vendedor
+			static SellerCompany^ LoginCompany(String^ username, String^ password); 
 	};
 }

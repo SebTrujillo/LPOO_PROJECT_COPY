@@ -82,7 +82,8 @@ namespace ProjectApp {
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(451, 28);
+			this->menuStrip1->Padding = System::Windows::Forms::Padding(4, 2, 0, 2);
+			this->menuStrip1->Size = System::Drawing::Size(721, 24);
 			this->menuStrip1->TabIndex = 1;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -93,19 +94,19 @@ namespace ProjectApp {
 					this->agregarNuevosUsuariosToolStripMenuItem
 			});
 			this->usuariosToolStripMenuItem->Name = L"usuariosToolStripMenuItem";
-			this->usuariosToolStripMenuItem->Size = System::Drawing::Size(79, 24);
+			this->usuariosToolStripMenuItem->Size = System::Drawing::Size(64, 20);
 			this->usuariosToolStripMenuItem->Text = L"Usuarios";
 			// 
 			// verProductosToolStripMenuItem
 			// 
 			this->verProductosToolStripMenuItem->Name = L"verProductosToolStripMenuItem";
-			this->verProductosToolStripMenuItem->Size = System::Drawing::Size(254, 26);
+			this->verProductosToolStripMenuItem->Size = System::Drawing::Size(204, 22);
 			this->verProductosToolStripMenuItem->Text = L"Ver productos";
 			// 
 			// agregarNuevosUsuariosToolStripMenuItem
 			// 
 			this->agregarNuevosUsuariosToolStripMenuItem->Name = L"agregarNuevosUsuariosToolStripMenuItem";
-			this->agregarNuevosUsuariosToolStripMenuItem->Size = System::Drawing::Size(254, 26);
+			this->agregarNuevosUsuariosToolStripMenuItem->Size = System::Drawing::Size(204, 22);
 			this->agregarNuevosUsuariosToolStripMenuItem->Text = L"Agregar nuevos usuarios";
 			// 
 			// empresasToolStripMenuItem
@@ -115,37 +116,38 @@ namespace ProjectApp {
 					this->registrarNuevaEmpresaToolStripMenuItem
 			});
 			this->empresasToolStripMenuItem->Name = L"empresasToolStripMenuItem";
-			this->empresasToolStripMenuItem->Size = System::Drawing::Size(86, 24);
+			this->empresasToolStripMenuItem->Size = System::Drawing::Size(69, 20);
 			this->empresasToolStripMenuItem->Text = L"Empresas";
 			// 
 			// registrarProductosToolStripMenuItem
 			// 
 			this->registrarProductosToolStripMenuItem->Name = L"registrarProductosToolStripMenuItem";
-			this->registrarProductosToolStripMenuItem->Size = System::Drawing::Size(255, 26);
-			this->registrarProductosToolStripMenuItem->Text = L"Registrar productos";
+			this->registrarProductosToolStripMenuItem->Size = System::Drawing::Size(203, 22);
+			this->registrarProductosToolStripMenuItem->Text = L"Iniciar Sesion";
 			this->registrarProductosToolStripMenuItem->Click += gcnew System::EventHandler(this, &Main::registrarProductosToolStripMenuItem_Click);
 			// 
 			// registrarNuevaEmpresaToolStripMenuItem
 			// 
 			this->registrarNuevaEmpresaToolStripMenuItem->Name = L"registrarNuevaEmpresaToolStripMenuItem";
-			this->registrarNuevaEmpresaToolStripMenuItem->Size = System::Drawing::Size(255, 26);
+			this->registrarNuevaEmpresaToolStripMenuItem->Size = System::Drawing::Size(203, 22);
 			this->registrarNuevaEmpresaToolStripMenuItem->Text = L"Registrar nueva empresa";
 			this->registrarNuevaEmpresaToolStripMenuItem->Click += gcnew System::EventHandler(this, &Main::registrarNuevaEmpresaToolStripMenuItem_Click);
 			// 
 			// administradoresToolStripMenuItem
 			// 
 			this->administradoresToolStripMenuItem->Name = L"administradoresToolStripMenuItem";
-			this->administradoresToolStripMenuItem->Size = System::Drawing::Size(132, 24);
+			this->administradoresToolStripMenuItem->Size = System::Drawing::Size(106, 20);
 			this->administradoresToolStripMenuItem->Text = L"Administradores";
 			// 
 			// Main
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(451, 314);
+			this->ClientSize = System::Drawing::Size(721, 304);
 			this->Controls->Add(this->menuStrip1);
 			this->IsMdiContainer = true;
 			this->MainMenuStrip = this->menuStrip1;
+			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->Name = L"Main";
 			this->Text = L"ELECTROMARKET";
 			this->menuStrip1->ResumeLayout(false);

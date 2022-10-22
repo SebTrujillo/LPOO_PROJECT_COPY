@@ -1,4 +1,5 @@
 #pragma once
+#include "LoginCompany.h"
 
 namespace ProjectApp {
 
@@ -571,6 +572,8 @@ private: System::Void modificarProductoToolStripMenuItem_Click(System::Object^ s
 }
 	   
 private: System::Void CompanyProduct_Load(System::Object^ sender, System::EventArgs^ e) {
+	LoginCompany^ loginCompany = gcnew LoginCompany();
+	loginCompany->ShowDialog();
 	RefreshGrid();
 	FillCmbStores();
 	btnUpdate->Enabled = false;

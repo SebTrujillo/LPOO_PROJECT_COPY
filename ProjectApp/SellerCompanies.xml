@@ -18,4 +18,13 @@
     <Sent_Invoice>false</Sent_Invoice>
     <RUC>1010101014</RUC>
   </SellerCompany>
+  <SellerCompany>
+    <Email>zffs</Email>
+    <PhoneNumber>12312</PhoneNumber>
+    <Address>adas</Address>
+    <Name>asf</Name>
+    <Id>123</Id>
+    <Sent_Invoice>false</Sent_Invoice>
+    <RUC>asf</RUC>
+  </SellerCompany>
 </ArrayOfSellerCompany>

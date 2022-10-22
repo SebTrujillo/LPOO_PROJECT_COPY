@@ -60,4 +60,14 @@
     <Name>LED BLANCO 5V</Name>
     <Id>1</Id>
   </Product>
+  <Product>
+    <Rating>0</Rating>
+    <IsLearning>true</IsLearning>
+    <Type>LED</Type>
+    <Stock>12</Stock>
+    <Price>2</Price>
+    <Description>aodasddasd</Description>
+    <Name>LDR</Name>
+    <Id>1234</Id>
+  </Product>
 </ArrayOfProduct>

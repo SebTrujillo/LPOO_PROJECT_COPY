@@ -32,6 +32,42 @@ void ProjectController::Controller::LoadSellerCompaniesData() {
     sr->Close();
 }
 
+SellerCompany^ ProjectController::Controller::LoginCompany(String^ username, String^ password)
+{
+    SellerCompany^ sellercompany;
+    if (username == "sebastian" && password == "password") {
+        sellercompany = gcnew SellerCompany();
+        sellercompany->RUC = "N123456";
+        sellercompany->Name = "Paruro";
+        sellercompany->Address = "Calle Paruro 123";
+        sellercompany->Email = "paruro@gmail.com";
+        sellercompany->PhoneNumber = "987654321";
+        sellercompany->Username_Company = "sebastian";
+
+    }
+    else if (username == "jose" && password == "password") {
+        sellercompany = gcnew SellerCompany();
+        sellercompany->RUC = "N123456";
+        sellercompany->Name = "Sodimac";
+        sellercompany->Address = "Calle Paruro 123";
+        sellercompany->Email = "paruro@gmail.com";
+        sellercompany->PhoneNumber = "987654321";
+        sellercompany->Username_Company = "sebastian";
+
+    }
+    else if (username == "maicol" && password == "password") {
+        sellercompany = gcnew SellerCompany();
+        sellercompany->RUC = "N123456";
+        sellercompany->Name = "Maestro";
+        sellercompany->Address = "Calle Paruro 123";
+        sellercompany->Email = "paruro@gmail.com";
+        sellercompany->PhoneNumber = "987654321";
+        sellercompany->Username_Company = "sebastian";
+
+    }
+    return sellercompany;
+}
+
 
 int ProjectController::Controller::AddProduct(Product^ product)
 {
