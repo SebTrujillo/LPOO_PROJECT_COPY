@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfSellerCompany xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SellerCompany>
+    <Password>123456</Password>
+    <User>anonimos</User>
     <Email>anonimosSAC@gmail.com</Email>
     <PhoneNumber>999999999</PhoneNumber>
     <Address>ELM STREET 214</Address>
@@ -10,6 +12,8 @@
     <RUC>999666999</RUC>
   </SellerCompany>
   <SellerCompany>
+    <Password>987456</Password>
+    <User>importaciones</User>
     <Email>importconnect@hotmail.com</Email>
     <PhoneNumber>111222333</PhoneNumber>
     <Address>Av, La Marina 3788</Address>
@@ -19,12 +23,14 @@
     <RUC>1010101014</RUC>
   </SellerCompany>
   <SellerCompany>
-    <Email>zffs</Email>
-    <PhoneNumber>12312</PhoneNumber>
-    <Address>adas</Address>
-    <Name>asf</Name>
-    <Id>123</Id>
+    <Password>sodimac</Password>
+    <User>sodimac</User>
+    <Email>asdsad</Email>
+    <PhoneNumber>987456321</PhoneNumber>
+    <Address>asdf</Address>
+    <Name>Sodimac</Name>
+    <Id>3</Id>
     <Sent_Invoice>false</Sent_Invoice>
-    <RUC>asf</RUC>
+    <RUC>123456</RUC>
   </SellerCompany>
 </ArrayOfSellerCompany>

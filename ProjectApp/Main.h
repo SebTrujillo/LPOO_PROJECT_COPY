@@ -2,7 +2,9 @@
 
 #include "CompanyProduct.h"
 #include "SellerCompanyForm.h"
-
+#include "ProductSearchForm.h"
+#include "TransactionForm.h"
+#include "CustomerForm.h"
 
 
 namespace ProjectApp {
@@ -49,6 +51,10 @@ namespace ProjectApp {
 	private: System::Windows::Forms::ToolStripMenuItem^ agregarNuevosUsuariosToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ registrarNuevaEmpresaToolStripMenuItem;
 
+	private: System::Windows::Forms::ToolStripMenuItem^ busquedaDeUsuariosToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ transacciónToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ busquedaDeProductosToolStripMenuItem;
+
 	private:
 		/// <summary>
 		/// Required designer variable.
@@ -70,15 +76,18 @@ namespace ProjectApp {
 			this->registrarProductosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->registrarNuevaEmpresaToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->administradoresToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->busquedaDeUsuariosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->busquedaDeProductosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->transacciónToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// menuStrip1
 			// 
 			this->menuStrip1->ImageScalingSize = System::Drawing::Size(20, 20);
-			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
+			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
 				this->usuariosToolStripMenuItem,
-					this->empresasToolStripMenuItem, this->administradoresToolStripMenuItem
+					this->empresasToolStripMenuItem, this->administradoresToolStripMenuItem, this->transacciónToolStripMenuItem
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
@@ -100,14 +109,15 @@ namespace ProjectApp {
 			// verProductosToolStripMenuItem
 			// 
 			this->verProductosToolStripMenuItem->Name = L"verProductosToolStripMenuItem";
-			this->verProductosToolStripMenuItem->Size = System::Drawing::Size(204, 22);
-			this->verProductosToolStripMenuItem->Text = L"Ver productos";
+			this->verProductosToolStripMenuItem->Size = System::Drawing::Size(246, 22);
+			this->verProductosToolStripMenuItem->Text = L"Iniciar Sesión";
 			// 
 			// agregarNuevosUsuariosToolStripMenuItem
 			// 
 			this->agregarNuevosUsuariosToolStripMenuItem->Name = L"agregarNuevosUsuariosToolStripMenuItem";
-			this->agregarNuevosUsuariosToolStripMenuItem->Size = System::Drawing::Size(204, 22);
-			this->agregarNuevosUsuariosToolStripMenuItem->Text = L"Agregar nuevos usuarios";
+			this->agregarNuevosUsuariosToolStripMenuItem->Size = System::Drawing::Size(246, 22);
+			this->agregarNuevosUsuariosToolStripMenuItem->Text = L"Registrarse como Nuevo Usuario";
+			this->agregarNuevosUsuariosToolStripMenuItem->Click += gcnew System::EventHandler(this, &Main::agregarNuevosUsuariosToolStripMenuItem_Click);
 			// 
 			// empresasToolStripMenuItem
 			// 
@@ -116,8 +126,8 @@ namespace ProjectApp {
 					this->registrarNuevaEmpresaToolStripMenuItem
 			});
 			this->empresasToolStripMenuItem->Name = L"empresasToolStripMenuItem";
-			this->empresasToolStripMenuItem->Size = System::Drawing::Size(69, 20);
-			this->empresasToolStripMenuItem->Text = L"Empresas";
+			this->empresasToolStripMenuItem->Size = System::Drawing::Size(84, 20);
+			this->empresasToolStripMenuItem->Text = L"Proveedores";
 			// 
 			// registrarProductosToolStripMenuItem
 			// 
@@ -135,9 +145,32 @@ namespace ProjectApp {
 			// 
 			// administradoresToolStripMenuItem
 			// 
+			this->administradoresToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+				this->busquedaDeUsuariosToolStripMenuItem,
+					this->busquedaDeProductosToolStripMenuItem
+			});
 			this->administradoresToolStripMenuItem->Name = L"administradoresToolStripMenuItem";
 			this->administradoresToolStripMenuItem->Size = System::Drawing::Size(106, 20);
 			this->administradoresToolStripMenuItem->Text = L"Administradores";
+			// 
+			// busquedaDeUsuariosToolStripMenuItem
+			// 
+			this->busquedaDeUsuariosToolStripMenuItem->Name = L"busquedaDeUsuariosToolStripMenuItem";
+			this->busquedaDeUsuariosToolStripMenuItem->Size = System::Drawing::Size(199, 22);
+			this->busquedaDeUsuariosToolStripMenuItem->Text = L"Busqueda de Usuarios";
+			// 
+			// busquedaDeProductosToolStripMenuItem
+			// 
+			this->busquedaDeProductosToolStripMenuItem->Name = L"busquedaDeProductosToolStripMenuItem";
+			this->busquedaDeProductosToolStripMenuItem->Size = System::Drawing::Size(199, 22);
+			this->busquedaDeProductosToolStripMenuItem->Text = L"Busqueda de Productos";
+			// 
+			// transacciónToolStripMenuItem
+			// 
+			this->transacciónToolStripMenuItem->Name = L"transacciónToolStripMenuItem";
+			this->transacciónToolStripMenuItem->Size = System::Drawing::Size(81, 20);
+			this->transacciónToolStripMenuItem->Text = L"Transacción";
+			this->transacciónToolStripMenuItem->Click += gcnew System::EventHandler(this, &Main::transacciónToolStripMenuItem_Click);
 			// 
 			// Main
 			// 
@@ -147,7 +180,7 @@ namespace ProjectApp {
 			this->Controls->Add(this->menuStrip1);
 			this->IsMdiContainer = true;
 			this->MainMenuStrip = this->menuStrip1;
-			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->Margin = System::Windows::Forms::Padding(2);
 			this->Name = L"Main";
 			this->Text = L"ELECTROMARKET";
 			this->menuStrip1->ResumeLayout(false);
@@ -166,6 +199,21 @@ private: System::Void registrarNuevaEmpresaToolStripMenuItem_Click(System::Objec
 	SellerCompanyForm^ sellerCompanyform = gcnew SellerCompanyForm();
 	sellerCompanyform->MdiParent = this;
 	sellerCompanyform->Show();
+}
+
+private: System::Void busquedaDeProductosToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+
+}
+private: System::Void transacciónToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	TransactionForm^ transactionForm = gcnew TransactionForm();
+	transactionForm->MdiParent = this;
+	transactionForm->Show();
+}
+
+private: System::Void agregarNuevosUsuariosToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	CustomerForm^ customerForm = gcnew CustomerForm();
+	customerForm->MdiParent = this;
+	customerForm->Show();
 }
 };
 }

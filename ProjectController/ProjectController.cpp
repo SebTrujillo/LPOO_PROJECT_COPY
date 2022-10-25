@@ -3,6 +3,7 @@
 #include "ProjectController.h"
 
 using namespace System::Xml::Serialization;
+using namespace System::Runtime::Serialization::Formatters::Binary;
 
 void ProjectController::Controller::PersistProducts() {
     XmlSerializer^ writer = gcnew XmlSerializer(productList->GetType());
@@ -16,6 +17,18 @@ void ProjectController::Controller::LoadProductsData() {
     StreamReader^ sr = gcnew StreamReader("Products.xml");
     productList = (List<Product^>^) Reader->Deserialize(sr);
     sr->Close();
+}
+
+List<Product^>^ ProjectController::Controller::QueryProductsByNameOrDescription(String^ value)
+{
+    LoadProductsData();
+    List<Product^>^ newProductList = gcnew List<Product^>();
+    for (int i = 0; i < productList->Count; i++) {
+        if (productList[i]->Name->Contains(value) ||
+            productList[i]->Description->Contains(value))
+            newProductList->Add(productList[i]);
+    }
+    return newProductList;
 }
 
 void ProjectController::Controller::PersistSellerCompanies() {
@@ -34,7 +47,7 @@ void ProjectController::Controller::LoadSellerCompaniesData() {
 
 SellerCompany^ ProjectController::Controller::LoginCompany(String^ username, String^ password)
 {
-    SellerCompany^ sellercompany;
+    /*SellerCompany^ sellercompany;
     if (username == "sebastian" && password == "password") {
         sellercompany = gcnew SellerCompany();
         sellercompany->RUC = "N123456";
@@ -42,7 +55,7 @@ SellerCompany^ ProjectController::Controller::LoginCompany(String^ username, Str
         sellercompany->Address = "Calle Paruro 123";
         sellercompany->Email = "paruro@gmail.com";
         sellercompany->PhoneNumber = "987654321";
-        sellercompany->Username_Company = "sebastian";
+        sellercompany->User= "sebastian";
 
     }
     else if (username == "jose" && password == "password") {
@@ -52,7 +65,7 @@ SellerCompany^ ProjectController::Controller::LoginCompany(String^ username, Str
         sellercompany->Address = "Calle Paruro 123";
         sellercompany->Email = "paruro@gmail.com";
         sellercompany->PhoneNumber = "987654321";
-        sellercompany->Username_Company = "sebastian";
+        sellercompany->User = "sebastian";
 
     }
     else if (username == "maicol" && password == "password") {
@@ -62,10 +75,20 @@ SellerCompany^ ProjectController::Controller::LoginCompany(String^ username, Str
         sellercompany->Address = "Calle Paruro 123";
         sellercompany->Email = "paruro@gmail.com";
         sellercompany->PhoneNumber = "987654321";
-        sellercompany->Username_Company = "sebastian";
+        sellercompany->User = "sebastian";
 
     }
-    return sellercompany;
+    return sellercompany;*/
+    SellerCompany^ sellerCompany;
+    LoadSellerCompaniesData();
+    for (int i = 0; i < sellerCompanyList->Count; i++) {
+        if (username == sellerCompanyList[i]->User &&
+            password == sellerCompanyList[i]->Password) {
+            sellerCompany = sellerCompanyList[i];
+            return sellerCompany;
+        }
+    }
+    return sellerCompany;
 }
 
 
@@ -195,4 +218,150 @@ SellerCompany^ ProjectController::Controller::QuerySellerCompanyById(int sellerC
             return sellerCompanyList[i];
         }
     return nullptr;
+}
+int ProjectController::Controller::AddCustomerCompany(Company^ customerCompany)
+{
+    customerCompanyList->Add(customerCompany);
+    PersistCustomerCompanies();
+    return 1;
+}
+
+int ProjectController::Controller::UpdateCustomerCompany(Company^ customerCompany)
+{
+    for (int i = 0; i < customerCompanyList->Count; i++)
+        if (customerCompany->Id == customerCompanyList[i]->Id) {
+            customerCompanyList[i] = customerCompany;
+            PersistCustomerCompanies();
+            return 1;
+        }
+    PersistCustomerCompanies();
+    return 0;
+}
+
+int ProjectController::Controller::DeleteCustomerCompany(int customerCompanyId)
+{
+    for (int i = 0; i < customerCompanyList->Count; i++)
+        if (customerCompanyId == customerCompanyList[i]->Id) {
+            customerCompanyList->RemoveAt(i);
+            PersistCustomerCompanies();
+            return 1;
+        }
+    PersistCustomerCompanies();
+    return 0;
+
+}
+
+List<Company^>^ ProjectController::Controller::QueryAllCustomerCompanies()
+{
+    LoadCustomerCompaniesData();
+    List<Company^>^ activeCustomerCompaniesList = gcnew List<Company^>();
+    for (int i = 0; i < customerCompanyList->Count; i++) {
+        activeCustomerCompaniesList->Add(customerCompanyList[i]);
+    }
+    return activeCustomerCompaniesList;
+
+    //throw gcnew System::NotImplementedException();
+    // TODO: Insertar una instrucción "return" aquí
+}
+
+Company^ ProjectController::Controller::QueryCustomerCompanyById(int customerCompanyId)
+{
+
+    for (int i = 0; i < customerCompanyList->Count; i++) {
+        if (customerCompanyId == customerCompanyList[i]->Id)
+            return customerCompanyList[i];
+    }
+    return nullptr;
+    //throw gcnew System::NotImplementedException();
+    // TODO: Insertar una instrucción "return" aquí
+}
+
+void ProjectController::Controller::PersistCustomerCompanies()
+{
+    XmlSerializer^ writer = gcnew XmlSerializer(customerCompanyList->GetType());
+    StreamWriter^ sw = gcnew StreamWriter("CustomerCompanies.xml");
+    writer->Serialize(sw, customerCompanyList);
+    sw->Close();
+    //throw gcnew System::NotImplementedException();
+}
+
+void ProjectController::Controller::LoadCustomerCompaniesData()
+{
+    XmlSerializer^ Reader = gcnew XmlSerializer(customerCompanyList->GetType());
+    StreamReader^ sr = gcnew StreamReader("CustomerCompanies.xml");
+    customerCompanyList = (List<Company^>^) Reader->Deserialize(sr);
+    sr->Close();
+}
+int ProjectController::Controller::AddCustomerNatural(Natural^ natural)
+{
+    naturalList->Add(natural);
+    PersistCustomerNaturals();
+    return 1;
+}
+
+int ProjectController::Controller::UpdateCustomerNatural(Natural^ natural)
+{
+    for (int i = 0; i < naturalList->Count; i++)
+        if (natural->Id == naturalList[i]->Id) {
+            naturalList[i] = natural;
+            PersistCustomerNaturals();
+            return 1;
+        }
+    PersistCustomerNaturals();
+    return 0;
+}
+
+int ProjectController::Controller::DeleteCustomerNatural(int naturalId)
+{
+    for (int i = 0; i < naturalList->Count; i++)
+        if (naturalId == naturalList[i]->Id) {
+            naturalList->RemoveAt(i);
+            PersistCustomerNaturals();
+            return 1;
+        }
+    PersistCustomerNaturals();
+    return 0;
+}
+
+List<Natural^>^ ProjectController::Controller::QueryAllCustomerNaturals()
+{
+    LoadCustomerNaturalsData();
+    List<Natural^>^ activeNaturalsList = gcnew List<Natural^>();
+    for (int i = 0; i < naturalList->Count; i++) {
+        activeNaturalsList->Add(naturalList[i]);
+    }
+    return activeNaturalsList;
+
+
+    //throw gcnew System::NotImplementedException();
+    // TODO: Insertar una instrucción "return" aquí
+}
+
+Natural^ ProjectController::Controller::QueryCustomerNaturalById(int naturalId)
+{
+    for (int i = 0; i < naturalList->Count; i++)
+        if (naturalId == naturalList[i]->Id) {
+            return naturalList[i];
+        }
+    return nullptr;
+    //throw gcnew System::NotImplementedException();
+    // TODO: Insertar una instrucción "return" aquí
+}
+
+void ProjectController::Controller::PersistCustomerNaturals()
+{
+    XmlSerializer^ writer = gcnew XmlSerializer(naturalList->GetType());
+    StreamWriter^ sw = gcnew StreamWriter("CustomerNaturals.xml");
+    writer->Serialize(sw, naturalList);
+    sw->Close();
+    //throw gcnew System::NotImplementedException();
+}
+
+void ProjectController::Controller::LoadCustomerNaturalsData()
+{
+    XmlSerializer^ Reader = gcnew XmlSerializer(naturalList->GetType());
+    StreamReader^ sr = gcnew StreamReader("CustomerNaturals.xml");
+    naturalList = (List<Natural^>^) Reader->Deserialize(sr);
+    sr->Close();
+    //throw gcnew System::NotImplementedException();
 }

@@ -12,8 +12,7 @@ namespace LPOOPROJECT {
     public:
         property String^ RUC;
         property bool Sent_Invoice;
-        property String^ Username_Company;
-        property String^ Password_Company;
+
     };
 }
 

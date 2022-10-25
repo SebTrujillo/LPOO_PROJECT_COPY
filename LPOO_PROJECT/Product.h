@@ -17,6 +17,7 @@ namespace  LPOOPROJECT {
         property String^ Type;
         property String^ IsLearning;
         property int Rating;
+        // sellerproduct
     };
     
 };

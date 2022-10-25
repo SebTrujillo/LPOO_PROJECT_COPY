@@ -123,6 +123,7 @@ namespace ProjectApp {
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(359, 154);
+			this->ControlBox = false;
 			this->Controls->Add(this->btnExitC);
 			this->Controls->Add(this->btnOkC);
 			this->Controls->Add(this->txtPasswordC);
@@ -147,7 +148,7 @@ namespace ProjectApp {
 		}
 	}
 private: System::Void btnExitC_Click(System::Object^ sender, System::EventArgs^ e) {
-	Application::Exit();
+	this->Close();
 }
 };
 }
