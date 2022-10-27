@@ -131,10 +131,19 @@
     <ClInclude Include="CompanyProduct.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="CustomerForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="LoginCompany.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="LoginCustomer.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Main.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="ProductSearchForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="pch.h" />
@@ -142,12 +151,18 @@
     <ClInclude Include="SellerCompanyForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="TransactionForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="CompanyProduct.cpp" />
+    <ClCompile Include="CustomerForm.cpp" />
     <ClCompile Include="LoginCompany.cpp" />
+    <ClCompile Include="LoginCustomer.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="ProductSearchForm.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -156,6 +171,7 @@
     </ClCompile>
     <ClCompile Include="ProjectApp.cpp" />
     <ClCompile Include="SellerCompanyForm.cpp" />
+    <ClCompile Include="TransactionForm.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="app.ico" />
@@ -179,14 +195,26 @@
     <EmbeddedResource Include="CompanyProduct.resx">
       <DependentUpon>CompanyProduct.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CustomerForm.resx">
+      <DependentUpon>CustomerForm.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginCompany.resx">
       <DependentUpon>LoginCompany.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginCustomer.resx">
+      <DependentUpon>LoginCustomer.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ProductSearchForm.resx">
+      <DependentUpon>ProductSearchForm.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SellerCompanyForm.resx">
       <DependentUpon>SellerCompanyForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransactionForm.resx">
+      <DependentUpon>TransactionForm.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

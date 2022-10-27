@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfNatural xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Natural>
+    <Password>123456</Password>
+    <User>jose</User>
+    <Email>Jose@gmail.com</Email>
+    <PhoneNumber>3631260</PhoneNumber>
+    <Address>Calle Palmeras</Address>
+    <Name>Jose Castillo Huashuayo</Name>
+    <Id>124</Id>
+    <DocNumber>73009962</DocNumber>
+  </Natural>
+</ArrayOfNatural>

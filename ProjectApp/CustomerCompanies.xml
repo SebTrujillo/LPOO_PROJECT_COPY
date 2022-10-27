@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfCompany xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Company>
+    <Password>123456</Password>
+    <User>sodic</User>
+    <Email>sodimac@gmail.com</Email>
+    <PhoneNumber>3631260</PhoneNumber>
+    <Address>universitaria 123</Address>
+    <Name>SodimacSAC</Name>
+    <Id>1</Id>
+    <RUC>123456789</RUC>
+    <WebPage>sodimac.com</WebPage>
+  </Company>
+</ArrayOfCompany>

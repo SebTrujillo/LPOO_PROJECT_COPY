@@ -80,6 +80,15 @@ namespace ProjectApp {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ sllrName;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ sllrPhone;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ sllrRUC;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ CompanyUserName;
+	private: System::Windows::Forms::TextBox^ txtCompanyUser;
+	private: System::Windows::Forms::TextBox^ txtCompanyPassword;
+	private: System::Windows::Forms::Label^ label7;
+	private: System::Windows::Forms::Label^ label8;
+
+
+
+
 
 
 
@@ -119,10 +128,15 @@ namespace ProjectApp {
 			this->salirToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->reporteToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->consultarDatosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->txtCompanyUser = (gcnew System::Windows::Forms::TextBox());
+			this->txtCompanyPassword = (gcnew System::Windows::Forms::TextBox());
+			this->label7 = (gcnew System::Windows::Forms::Label());
+			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->sllrID = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->sllrName = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->sllrPhone = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->sllrRUC = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->CompanyUserName = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvSllr))->BeginInit();
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
@@ -130,119 +144,133 @@ namespace ProjectApp {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(56, 53);
+			this->label1->Location = System::Drawing::Point(42, 43);
+			this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(18, 16);
+			this->label1->Size = System::Drawing::Size(16, 13);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Id";
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(56, 91);
+			this->label2->Location = System::Drawing::Point(42, 74);
+			this->label2->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(114, 16);
+			this->label2->Size = System::Drawing::Size(88, 13);
 			this->label2->TabIndex = 1;
 			this->label2->Text = L"Nombre Empresa";
 			// 
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(56, 124);
+			this->label3->Location = System::Drawing::Point(42, 101);
+			this->label3->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(64, 16);
+			this->label3->Size = System::Drawing::Size(52, 13);
 			this->label3->TabIndex = 2;
 			this->label3->Text = L"Dirección";
 			// 
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(56, 168);
+			this->label4->Location = System::Drawing::Point(42, 136);
+			this->label4->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(117, 16);
+			this->label4->Size = System::Drawing::Size(93, 13);
 			this->label4->TabIndex = 3;
 			this->label4->Text = L"Número de celular";
 			// 
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(56, 204);
+			this->label5->Location = System::Drawing::Point(42, 166);
+			this->label5->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(41, 16);
+			this->label5->Size = System::Drawing::Size(32, 13);
 			this->label5->TabIndex = 4;
 			this->label5->Text = L"Email";
 			// 
 			// txtSllrID
 			// 
-			this->txtSllrID->Location = System::Drawing::Point(276, 53);
+			this->txtSllrID->Location = System::Drawing::Point(207, 43);
+			this->txtSllrID->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->txtSllrID->Name = L"txtSllrID";
-			this->txtSllrID->Size = System::Drawing::Size(82, 22);
+			this->txtSllrID->Size = System::Drawing::Size(62, 20);
 			this->txtSllrID->TabIndex = 5;
 			// 
 			// txtSllrName
 			// 
-			this->txtSllrName->Location = System::Drawing::Point(276, 91);
+			this->txtSllrName->Location = System::Drawing::Point(207, 74);
+			this->txtSllrName->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->txtSllrName->Name = L"txtSllrName";
-			this->txtSllrName->Size = System::Drawing::Size(323, 22);
+			this->txtSllrName->Size = System::Drawing::Size(243, 20);
 			this->txtSllrName->TabIndex = 6;
 			// 
 			// txtSllrDir
 			// 
-			this->txtSllrDir->Location = System::Drawing::Point(276, 124);
+			this->txtSllrDir->Location = System::Drawing::Point(207, 101);
+			this->txtSllrDir->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->txtSllrDir->Name = L"txtSllrDir";
-			this->txtSllrDir->Size = System::Drawing::Size(417, 22);
+			this->txtSllrDir->Size = System::Drawing::Size(314, 20);
 			this->txtSllrDir->TabIndex = 7;
 			// 
 			// txtSllrPhone
 			// 
-			this->txtSllrPhone->Location = System::Drawing::Point(276, 168);
+			this->txtSllrPhone->Location = System::Drawing::Point(207, 136);
+			this->txtSllrPhone->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->txtSllrPhone->Name = L"txtSllrPhone";
-			this->txtSllrPhone->Size = System::Drawing::Size(207, 22);
+			this->txtSllrPhone->Size = System::Drawing::Size(156, 20);
 			this->txtSllrPhone->TabIndex = 8;
 			// 
 			// txtSllrEmail
 			// 
-			this->txtSllrEmail->Location = System::Drawing::Point(276, 204);
+			this->txtSllrEmail->Location = System::Drawing::Point(207, 166);
+			this->txtSllrEmail->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->txtSllrEmail->Name = L"txtSllrEmail";
-			this->txtSllrEmail->Size = System::Drawing::Size(300, 22);
+			this->txtSllrEmail->Size = System::Drawing::Size(226, 20);
 			this->txtSllrEmail->TabIndex = 9;
 			// 
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(56, 243);
+			this->label6->Location = System::Drawing::Point(42, 197);
+			this->label6->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(36, 16);
+			this->label6->Size = System::Drawing::Size(30, 13);
 			this->label6->TabIndex = 10;
 			this->label6->Text = L"RUC";
 			// 
 			// txtSllrRUC
 			// 
-			this->txtSllrRUC->Location = System::Drawing::Point(276, 243);
+			this->txtSllrRUC->Location = System::Drawing::Point(207, 197);
+			this->txtSllrRUC->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->txtSllrRUC->Name = L"txtSllrRUC";
-			this->txtSllrRUC->Size = System::Drawing::Size(207, 22);
+			this->txtSllrRUC->Size = System::Drawing::Size(156, 20);
 			this->txtSllrRUC->TabIndex = 11;
 			// 
 			// dgvSllr
 			// 
 			this->dgvSllr->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dgvSllr->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(4) {
+			this->dgvSllr->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(5) {
 				this->sllrID, this->sllrName,
-					this->sllrPhone, this->sllrRUC
+					this->sllrPhone, this->sllrRUC, this->CompanyUserName
 			});
-			this->dgvSllr->Location = System::Drawing::Point(59, 352);
+			this->dgvSllr->Location = System::Drawing::Point(27, 286);
+			this->dgvSllr->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->dgvSllr->Name = L"dgvSllr";
 			this->dgvSllr->RowHeadersWidth = 51;
 			this->dgvSllr->RowTemplate->Height = 24;
-			this->dgvSllr->Size = System::Drawing::Size(770, 142);
+			this->dgvSllr->Size = System::Drawing::Size(884, 115);
 			this->dgvSllr->TabIndex = 13;
 			this->dgvSllr->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &SellerCompanyForm::dgvSllr_CellClick);
 			// 
 			// btnSllrAdd
 			// 
-			this->btnSllrAdd->Location = System::Drawing::Point(59, 295);
+			this->btnSllrAdd->Location = System::Drawing::Point(44, 240);
+			this->btnSllrAdd->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->btnSllrAdd->Name = L"btnSllrAdd";
-			this->btnSllrAdd->Size = System::Drawing::Size(183, 30);
+			this->btnSllrAdd->Size = System::Drawing::Size(137, 24);
 			this->btnSllrAdd->TabIndex = 14;
 			this->btnSllrAdd->Text = L"Agregar";
 			this->btnSllrAdd->UseVisualStyleBackColor = true;
@@ -250,9 +278,10 @@ namespace ProjectApp {
 			// 
 			// btnSllrDelete
 			// 
-			this->btnSllrDelete->Location = System::Drawing::Point(657, 295);
+			this->btnSllrDelete->Location = System::Drawing::Point(726, 249);
+			this->btnSllrDelete->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->btnSllrDelete->Name = L"btnSllrDelete";
-			this->btnSllrDelete->Size = System::Drawing::Size(172, 30);
+			this->btnSllrDelete->Size = System::Drawing::Size(129, 24);
 			this->btnSllrDelete->TabIndex = 15;
 			this->btnSllrDelete->Text = L"Eliminar";
 			this->btnSllrDelete->UseVisualStyleBackColor = true;
@@ -260,9 +289,10 @@ namespace ProjectApp {
 			// 
 			// btnSllrUpdate
 			// 
-			this->btnSllrUpdate->Location = System::Drawing::Point(360, 295);
+			this->btnSllrUpdate->Location = System::Drawing::Point(425, 240);
+			this->btnSllrUpdate->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->btnSllrUpdate->Name = L"btnSllrUpdate";
-			this->btnSllrUpdate->Size = System::Drawing::Size(183, 30);
+			this->btnSllrUpdate->Size = System::Drawing::Size(137, 24);
 			this->btnSllrUpdate->TabIndex = 16;
 			this->btnSllrUpdate->Text = L"Modificar";
 			this->btnSllrUpdate->UseVisualStyleBackColor = true;
@@ -278,7 +308,8 @@ namespace ProjectApp {
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(938, 28);
+			this->menuStrip1->Padding = System::Windows::Forms::Padding(4, 2, 0, 2);
+			this->menuStrip1->Size = System::Drawing::Size(922, 24);
 			this->menuStrip1->TabIndex = 17;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -289,27 +320,27 @@ namespace ProjectApp {
 					this->editarToolStripMenuItem, this->salirToolStripMenuItem
 			});
 			this->archivoToolStripMenuItem->Name = L"archivoToolStripMenuItem";
-			this->archivoToolStripMenuItem->Size = System::Drawing::Size(73, 24);
+			this->archivoToolStripMenuItem->Size = System::Drawing::Size(60, 20);
 			this->archivoToolStripMenuItem->Text = L"Archivo";
 			// 
 			// nuevoToolStripMenuItem
 			// 
 			this->nuevoToolStripMenuItem->Name = L"nuevoToolStripMenuItem";
-			this->nuevoToolStripMenuItem->Size = System::Drawing::Size(195, 26);
+			this->nuevoToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->nuevoToolStripMenuItem->Text = L"Nueva empresa";
 			this->nuevoToolStripMenuItem->Click += gcnew System::EventHandler(this, &SellerCompanyForm::nuevoToolStripMenuItem_Click);
 			// 
 			// editarToolStripMenuItem
 			// 
 			this->editarToolStripMenuItem->Name = L"editarToolStripMenuItem";
-			this->editarToolStripMenuItem->Size = System::Drawing::Size(195, 26);
+			this->editarToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->editarToolStripMenuItem->Text = L"Editar empresa";
 			this->editarToolStripMenuItem->Click += gcnew System::EventHandler(this, &SellerCompanyForm::editarToolStripMenuItem_Click);
 			// 
 			// salirToolStripMenuItem
 			// 
 			this->salirToolStripMenuItem->Name = L"salirToolStripMenuItem";
-			this->salirToolStripMenuItem->Size = System::Drawing::Size(195, 26);
+			this->salirToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->salirToolStripMenuItem->Text = L"Salir";
 			this->salirToolStripMenuItem->Click += gcnew System::EventHandler(this, &SellerCompanyForm::salirToolStripMenuItem_Click);
 			// 
@@ -317,15 +348,47 @@ namespace ProjectApp {
 			// 
 			this->reporteToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->consultarDatosToolStripMenuItem });
 			this->reporteToolStripMenuItem->Name = L"reporteToolStripMenuItem";
-			this->reporteToolStripMenuItem->Size = System::Drawing::Size(76, 24);
+			this->reporteToolStripMenuItem->Size = System::Drawing::Size(60, 20);
 			this->reporteToolStripMenuItem->Text = L"Reporte";
 			// 
 			// consultarDatosToolStripMenuItem
 			// 
 			this->consultarDatosToolStripMenuItem->Name = L"consultarDatosToolStripMenuItem";
-			this->consultarDatosToolStripMenuItem->Size = System::Drawing::Size(195, 26);
+			this->consultarDatosToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->consultarDatosToolStripMenuItem->Text = L"Consultar datos";
 			this->consultarDatosToolStripMenuItem->Click += gcnew System::EventHandler(this, &SellerCompanyForm::consultarDatosToolStripMenuItem_Click);
+			// 
+			// txtCompanyUser
+			// 
+			this->txtCompanyUser->Location = System::Drawing::Point(718, 36);
+			this->txtCompanyUser->Name = L"txtCompanyUser";
+			this->txtCompanyUser->Size = System::Drawing::Size(137, 20);
+			this->txtCompanyUser->TabIndex = 18;
+			// 
+			// txtCompanyPassword
+			// 
+			this->txtCompanyPassword->Location = System::Drawing::Point(718, 78);
+			this->txtCompanyPassword->Name = L"txtCompanyPassword";
+			this->txtCompanyPassword->Size = System::Drawing::Size(137, 20);
+			this->txtCompanyPassword->TabIndex = 19;
+			// 
+			// label7
+			// 
+			this->label7->AutoSize = true;
+			this->label7->Location = System::Drawing::Point(611, 43);
+			this->label7->Name = L"label7";
+			this->label7->Size = System::Drawing::Size(43, 13);
+			this->label7->TabIndex = 20;
+			this->label7->Text = L"Usuario";
+			// 
+			// label8
+			// 
+			this->label8->AutoSize = true;
+			this->label8->Location = System::Drawing::Point(611, 81);
+			this->label8->Name = L"label8";
+			this->label8->Size = System::Drawing::Size(61, 13);
+			this->label8->TabIndex = 21;
+			this->label8->Text = L"Contraseña";
 			// 
 			// sllrID
 			// 
@@ -355,11 +418,21 @@ namespace ProjectApp {
 			this->sllrRUC->Name = L"sllrRUC";
 			this->sllrRUC->Width = 125;
 			// 
+			// CompanyUserName
+			// 
+			this->CompanyUserName->HeaderText = L"Nombre de Usuario";
+			this->CompanyUserName->Name = L"CompanyUserName";
+			this->CompanyUserName->Width = 250;
+			// 
 			// SellerCompanyForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(938, 547);
+			this->ClientSize = System::Drawing::Size(922, 444);
+			this->Controls->Add(this->label8);
+			this->Controls->Add(this->label7);
+			this->Controls->Add(this->txtCompanyPassword);
+			this->Controls->Add(this->txtCompanyUser);
 			this->Controls->Add(this->btnSllrUpdate);
 			this->Controls->Add(this->btnSllrDelete);
 			this->Controls->Add(this->btnSllrAdd);
@@ -378,6 +451,7 @@ namespace ProjectApp {
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->menuStrip1);
 			this->MainMenuStrip = this->menuStrip1;
+			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->Name = L"SellerCompanyForm";
 			this->Text = L"SellerCompanyForm";
 			this->Load += gcnew System::EventHandler(this, &SellerCompanyForm::SellerCompanyForm_Load);
@@ -400,6 +474,9 @@ private: System::Void salirToolStripMenuItem_Click(System::Object^ sender, Syste
 		   txtSllrName->Clear();
 		   txtSllrPhone->Clear();
 		   txtSllrRUC->Clear();
+		   txtCompanyUser->Clear();
+		   txtCompanyPassword->Clear();
+
 	   }
 
 	   void RefreshDGVSllr() {
@@ -411,7 +488,9 @@ private: System::Void salirToolStripMenuItem_Click(System::Object^ sender, Syste
 					   ""+sellerCompList[i]->Id,
 						   sellerCompList[i]->Name,
 						  ""+ sellerCompList[i]->PhoneNumber,
-						  ""+ sellerCompList[i]->RUC
+						  ""+ sellerCompList[i]->RUC,
+						  ""+ sellerCompList[i]->User
+
 				   });
 			   }
 		   }
@@ -445,6 +524,15 @@ private: System::Void btnSllrAdd_Click(System::Object^ sender, System::EventArgs
 			MessageBox::Show("El RUC de la empresa vendedora no debe estar vacío.");
 			return;
 		}
+		if (txtCompanyUser->Text->Trim() == "") {
+			MessageBox::Show("El usuario de la empresa vendedora no debe estar vacío.");
+			return;
+		}
+		if (txtCompanyPassword->Text->Trim() == "") {
+			MessageBox::Show("La contraseña de la empresa vendedora no debe estar vacío.");
+			return;
+		}
+
 		
 		sc->Id = Int32::Parse(txtSllrID->Text);
 		sc->Name = txtSllrName->Text;
@@ -452,6 +540,9 @@ private: System::Void btnSllrAdd_Click(System::Object^ sender, System::EventArgs
 		sc->PhoneNumber = txtSllrPhone->Text;
 		sc->Email = txtSllrEmail->Text;
 		sc->RUC = txtSllrRUC->Text;
+		sc->User = txtCompanyUser->Text;
+		sc->Password = txtCompanyPassword->Text;
+
 		Controller::AddSellerCompany(sc);
 		RefreshDGVSllr();
 		ClearControls();
@@ -494,6 +585,14 @@ private: System::Void btnSllrUpdate_Click(System::Object^ sender, System::EventA
 				MessageBox::Show("El RUC de la empresa vendedora no debe estar vacío.");
 				return;
 			}
+			if (txtCompanyUser->Text->Trim() == "") {
+				MessageBox::Show("El usuario de la empresa vendedora no debe estar vacío.");
+				return;
+			}
+			if (txtCompanyPassword->Text->Trim() == "") {
+				MessageBox::Show("La contraseña de la empresa vendedora no debe estar vacío.");
+				return;
+			}
 
 			sc->Id = Int32::Parse(txtSllrID->Text);
 			sc->Name = txtSllrName->Text;
@@ -501,6 +600,8 @@ private: System::Void btnSllrUpdate_Click(System::Object^ sender, System::EventA
 			sc->PhoneNumber = txtSllrPhone->Text;
 			sc->Email = txtSllrEmail->Text;
 			sc->RUC = txtSllrRUC->Text;
+			sc->User = txtCompanyUser->Text;
+			sc->Password = txtCompanyPassword->Text;
 			Controller::UpdateSellerCompany(sc);
 			RefreshDGVSllr();
 			ClearControls();
@@ -561,6 +662,8 @@ private: System::Void dgvSllr_CellClick(System::Object^ sender, System::Windows:
 		txtSllrName->Text = sc->Name;
 		txtSllrPhone->Text = sc->PhoneNumber;
 		txtSllrRUC->Text = sc->RUC;
+		txtCompanyUser->Text = sc->User;
+		txtCompanyPassword->Text = sc->Password;
 
 	}
 }
