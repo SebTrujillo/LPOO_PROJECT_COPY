@@ -52,6 +52,8 @@ namespace ProjectApp {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ ProductName;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Company;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Stock;
+	private: System::Windows::Forms::Label^ label3;
+	private: System::Windows::Forms::ComboBox^ cmbSellerCompany;
 
 	private:
 		/// <summary>
@@ -78,46 +80,53 @@ namespace ProjectApp {
 			this->ProductName = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Company = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Stock = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->cmbSellerCompany = (gcnew System::Windows::Forms::ComboBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(51, 18);
+			this->label1->Location = System::Drawing::Point(68, 22);
+			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(19, 13);
+			this->label1->Size = System::Drawing::Size(21, 16);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Id:";
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(51, 40);
+			this->label2->Location = System::Drawing::Point(68, 49);
+			this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(108, 13);
+			this->label2->Size = System::Drawing::Size(135, 16);
 			this->label2->TabIndex = 1;
 			this->label2->Text = L"Nombre/Descripción:";
 			// 
 			// txtId
 			// 
-			this->txtId->Location = System::Drawing::Point(177, 15);
+			this->txtId->Location = System::Drawing::Point(236, 18);
+			this->txtId->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->txtId->Name = L"txtId";
-			this->txtId->Size = System::Drawing::Size(247, 20);
+			this->txtId->Size = System::Drawing::Size(328, 22);
 			this->txtId->TabIndex = 2;
 			// 
 			// textNameDescription
 			// 
-			this->textNameDescription->Location = System::Drawing::Point(177, 37);
+			this->textNameDescription->Location = System::Drawing::Point(236, 46);
+			this->textNameDescription->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->textNameDescription->Name = L"textNameDescription";
-			this->textNameDescription->Size = System::Drawing::Size(493, 20);
+			this->textNameDescription->Size = System::Drawing::Size(656, 22);
 			this->textNameDescription->TabIndex = 3;
 			// 
 			// btnOk
 			// 
-			this->btnOk->Location = System::Drawing::Point(103, 88);
+			this->btnOk->Location = System::Drawing::Point(136, 122);
+			this->btnOk->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->btnOk->Name = L"btnOk";
-			this->btnOk->Size = System::Drawing::Size(75, 23);
+			this->btnOk->Size = System::Drawing::Size(100, 28);
 			this->btnOk->TabIndex = 4;
 			this->btnOk->Text = L"Buscar";
 			this->btnOk->UseVisualStyleBackColor = true;
@@ -125,18 +134,20 @@ namespace ProjectApp {
 			// 
 			// btnDelete
 			// 
-			this->btnDelete->Location = System::Drawing::Point(338, 88);
+			this->btnDelete->Location = System::Drawing::Point(445, 122);
+			this->btnDelete->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->btnDelete->Name = L"btnDelete";
-			this->btnDelete->Size = System::Drawing::Size(75, 23);
+			this->btnDelete->Size = System::Drawing::Size(100, 28);
 			this->btnDelete->TabIndex = 5;
 			this->btnDelete->Text = L"Eliminar";
 			this->btnDelete->UseVisualStyleBackColor = true;
 			// 
 			// btnCancel
 			// 
-			this->btnCancel->Location = System::Drawing::Point(608, 88);
+			this->btnCancel->Location = System::Drawing::Point(792, 122);
+			this->btnCancel->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->btnCancel->Name = L"btnCancel";
-			this->btnCancel->Size = System::Drawing::Size(75, 23);
+			this->btnCancel->Size = System::Drawing::Size(100, 28);
 			this->btnCancel->TabIndex = 6;
 			this->btnCancel->Text = L"Salir";
 			this->btnCancel->UseVisualStyleBackColor = true;
@@ -148,41 +159,66 @@ namespace ProjectApp {
 				this->Id, this->ProductName,
 					this->Company, this->Stock
 			});
-			this->dataGridView1->Location = System::Drawing::Point(34, 127);
+			this->dataGridView1->Location = System::Drawing::Point(45, 185);
+			this->dataGridView1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->dataGridView1->Name = L"dataGridView1";
-			this->dataGridView1->Size = System::Drawing::Size(702, 254);
+			this->dataGridView1->RowHeadersWidth = 51;
+			this->dataGridView1->Size = System::Drawing::Size(936, 313);
 			this->dataGridView1->TabIndex = 7;
 			this->dataGridView1->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &ProductSearchForm::dataGridView1_CellClick);
 			// 
 			// Id
 			// 
 			this->Id->HeaderText = L"Id";
+			this->Id->MinimumWidth = 6;
 			this->Id->Name = L"Id";
 			this->Id->Width = 90;
 			// 
 			// ProductName
 			// 
 			this->ProductName->HeaderText = L"Nombre";
+			this->ProductName->MinimumWidth = 6;
 			this->ProductName->Name = L"ProductName";
 			this->ProductName->Width = 280;
 			// 
 			// Company
 			// 
 			this->Company->HeaderText = L"Proveedor";
+			this->Company->MinimumWidth = 6;
 			this->Company->Name = L"Company";
 			this->Company->Width = 200;
 			// 
 			// Stock
 			// 
 			this->Stock->HeaderText = L"Stock";
+			this->Stock->MinimumWidth = 6;
 			this->Stock->Name = L"Stock";
 			this->Stock->Width = 90;
 			// 
+			// label3
+			// 
+			this->label3->AutoSize = true;
+			this->label3->Location = System::Drawing::Point(71, 88);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(137, 16);
+			this->label3->TabIndex = 8;
+			this->label3->Text = L"Empresa Proveedora";
+			// 
+			// cmbSellerCompany
+			// 
+			this->cmbSellerCompany->FormattingEnabled = true;
+			this->cmbSellerCompany->Location = System::Drawing::Point(236, 79);
+			this->cmbSellerCompany->Name = L"cmbSellerCompany";
+			this->cmbSellerCompany->Size = System::Drawing::Size(328, 24);
+			this->cmbSellerCompany->TabIndex = 9;
+			// 
 			// ProductSearchForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(748, 393);
+			this->ClientSize = System::Drawing::Size(1028, 533);
+			this->Controls->Add(this->cmbSellerCompany);
+			this->Controls->Add(this->label3);
 			this->Controls->Add(this->dataGridView1);
 			this->Controls->Add(this->btnCancel);
 			this->Controls->Add(this->btnDelete);
@@ -191,6 +227,7 @@ namespace ProjectApp {
 			this->Controls->Add(this->txtId);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
+			this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->Name = L"ProductSearchForm";
 			this->Text = L"Busqueda de Productos";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
