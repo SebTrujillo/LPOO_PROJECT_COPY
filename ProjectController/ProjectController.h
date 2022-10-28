@@ -31,8 +31,10 @@ namespace ProjectController {
 			static void PersistProducts();
 			static void LoadProductsData();
 			static List<Product^>^ QueryProductsByNameOrDescription(String^);
-			//querybyproveedores
-			//querybytipoproducto 
+			static Product^ QueryProductBySellerCompany(String^ sellerCompanyName);
+			static List<Product^>^ QueryAllProductsBySeller(String^ sellerCompanyName);
+			static Product^ QueryProductByType(String^ productType);
+			static List<Product^>^ QueryAllProductsByType(String^ productType);
 
 			//CRUD EMPRESAS PROVEEDORAS
 			static int AddSellerCompany(SellerCompany^ sellerCompany);
@@ -40,6 +42,7 @@ namespace ProjectController {
 			static int DeleteSellerCompany(int sellerCompanyId); 
 			static List<SellerCompany^>^ QueryAllSellerCompanies(); 
 			static SellerCompany^ QuerySellerCompanyById(int sellerCompanyId);
+			static SellerCompany^ QuerySellerCompanyByName(String^ sellerCompanyName);
 			static void PersistSellerCompanies();
 			static void LoadSellerCompaniesData();
 
