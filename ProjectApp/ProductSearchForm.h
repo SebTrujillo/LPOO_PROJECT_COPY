@@ -1,5 +1,5 @@
 #pragma once
-
+#include "ComboBoxItem.h"
 namespace ProjectApp {
 
 	using namespace System;
@@ -48,12 +48,19 @@ namespace ProjectApp {
 	private: System::Windows::Forms::Button^ btnDelete;
 	private: System::Windows::Forms::Button^ btnCancel;
 	private: System::Windows::Forms::DataGridView^ dataGridView1;
+
+
+
+
+	private: System::Windows::Forms::Label^ label3;
+	private: System::Windows::Forms::ComboBox^ cmbSellerCompany;
+	private: System::Windows::Forms::Label^ label4;
+	private: System::Windows::Forms::ComboBox^ cmbProductType;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Id;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ ProductName;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Company;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Stock;
-	private: System::Windows::Forms::Label^ label3;
-	private: System::Windows::Forms::ComboBox^ cmbSellerCompany;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ prodType;
 
 	private:
 		/// <summary>
@@ -76,12 +83,15 @@ namespace ProjectApp {
 			this->btnDelete = (gcnew System::Windows::Forms::Button());
 			this->btnCancel = (gcnew System::Windows::Forms::Button());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
+			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->cmbSellerCompany = (gcnew System::Windows::Forms::ComboBox());
+			this->label4 = (gcnew System::Windows::Forms::Label());
+			this->cmbProductType = (gcnew System::Windows::Forms::ComboBox());
 			this->Id = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->ProductName = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Company = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Stock = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->label3 = (gcnew System::Windows::Forms::Label());
-			this->cmbSellerCompany = (gcnew System::Windows::Forms::ComboBox());
+			this->prodType = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -108,7 +118,7 @@ namespace ProjectApp {
 			// txtId
 			// 
 			this->txtId->Location = System::Drawing::Point(236, 18);
-			this->txtId->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->txtId->Margin = System::Windows::Forms::Padding(4);
 			this->txtId->Name = L"txtId";
 			this->txtId->Size = System::Drawing::Size(328, 22);
 			this->txtId->TabIndex = 2;
@@ -116,15 +126,15 @@ namespace ProjectApp {
 			// textNameDescription
 			// 
 			this->textNameDescription->Location = System::Drawing::Point(236, 46);
-			this->textNameDescription->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->textNameDescription->Margin = System::Windows::Forms::Padding(4);
 			this->textNameDescription->Name = L"textNameDescription";
 			this->textNameDescription->Size = System::Drawing::Size(656, 22);
 			this->textNameDescription->TabIndex = 3;
 			// 
 			// btnOk
 			// 
-			this->btnOk->Location = System::Drawing::Point(136, 122);
-			this->btnOk->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->btnOk->Location = System::Drawing::Point(136, 171);
+			this->btnOk->Margin = System::Windows::Forms::Padding(4);
 			this->btnOk->Name = L"btnOk";
 			this->btnOk->Size = System::Drawing::Size(100, 28);
 			this->btnOk->TabIndex = 4;
@@ -134,8 +144,8 @@ namespace ProjectApp {
 			// 
 			// btnDelete
 			// 
-			this->btnDelete->Location = System::Drawing::Point(445, 122);
-			this->btnDelete->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->btnDelete->Location = System::Drawing::Point(448, 171);
+			this->btnDelete->Margin = System::Windows::Forms::Padding(4);
 			this->btnDelete->Name = L"btnDelete";
 			this->btnDelete->Size = System::Drawing::Size(100, 28);
 			this->btnDelete->TabIndex = 5;
@@ -144,56 +154,29 @@ namespace ProjectApp {
 			// 
 			// btnCancel
 			// 
-			this->btnCancel->Location = System::Drawing::Point(792, 122);
-			this->btnCancel->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->btnCancel->Location = System::Drawing::Point(810, 171);
+			this->btnCancel->Margin = System::Windows::Forms::Padding(4);
 			this->btnCancel->Name = L"btnCancel";
 			this->btnCancel->Size = System::Drawing::Size(100, 28);
 			this->btnCancel->TabIndex = 6;
 			this->btnCancel->Text = L"Salir";
 			this->btnCancel->UseVisualStyleBackColor = true;
+			this->btnCancel->Click += gcnew System::EventHandler(this, &ProductSearchForm::btnCancel_Click);
 			// 
 			// dataGridView1
 			// 
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(4) {
+			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(5) {
 				this->Id, this->ProductName,
-					this->Company, this->Stock
+					this->Company, this->Stock, this->prodType
 			});
-			this->dataGridView1->Location = System::Drawing::Point(45, 185);
-			this->dataGridView1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->dataGridView1->Location = System::Drawing::Point(47, 207);
+			this->dataGridView1->Margin = System::Windows::Forms::Padding(4);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersWidth = 51;
 			this->dataGridView1->Size = System::Drawing::Size(936, 313);
 			this->dataGridView1->TabIndex = 7;
 			this->dataGridView1->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &ProductSearchForm::dataGridView1_CellClick);
-			// 
-			// Id
-			// 
-			this->Id->HeaderText = L"Id";
-			this->Id->MinimumWidth = 6;
-			this->Id->Name = L"Id";
-			this->Id->Width = 90;
-			// 
-			// ProductName
-			// 
-			this->ProductName->HeaderText = L"Nombre";
-			this->ProductName->MinimumWidth = 6;
-			this->ProductName->Name = L"ProductName";
-			this->ProductName->Width = 280;
-			// 
-			// Company
-			// 
-			this->Company->HeaderText = L"Proveedor";
-			this->Company->MinimumWidth = 6;
-			this->Company->Name = L"Company";
-			this->Company->Width = 200;
-			// 
-			// Stock
-			// 
-			this->Stock->HeaderText = L"Stock";
-			this->Stock->MinimumWidth = 6;
-			this->Stock->Name = L"Stock";
-			this->Stock->Width = 90;
 			// 
 			// label3
 			// 
@@ -212,11 +195,65 @@ namespace ProjectApp {
 			this->cmbSellerCompany->Size = System::Drawing::Size(328, 24);
 			this->cmbSellerCompany->TabIndex = 9;
 			// 
+			// label4
+			// 
+			this->label4->AutoSize = true;
+			this->label4->Location = System::Drawing::Point(71, 125);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(111, 16);
+			this->label4->TabIndex = 10;
+			this->label4->Text = L"Tipo de Producto";
+			// 
+			// cmbProductType
+			// 
+			this->cmbProductType->FormattingEnabled = true;
+			this->cmbProductType->Location = System::Drawing::Point(236, 125);
+			this->cmbProductType->Name = L"cmbProductType";
+			this->cmbProductType->Size = System::Drawing::Size(211, 24);
+			this->cmbProductType->TabIndex = 11;
+			// 
+			// Id
+			// 
+			this->Id->HeaderText = L"Id";
+			this->Id->MinimumWidth = 6;
+			this->Id->Name = L"Id";
+			this->Id->Width = 90;
+			// 
+			// ProductName
+			// 
+			this->ProductName->HeaderText = L"Nombre";
+			this->ProductName->MinimumWidth = 6;
+			this->ProductName->Name = L"ProductName";
+			this->ProductName->Width = 180;
+			// 
+			// Company
+			// 
+			this->Company->HeaderText = L"Proveedor";
+			this->Company->MinimumWidth = 6;
+			this->Company->Name = L"Company";
+			this->Company->Width = 200;
+			// 
+			// Stock
+			// 
+			this->Stock->HeaderText = L"Stock";
+			this->Stock->MinimumWidth = 6;
+			this->Stock->Name = L"Stock";
+			this->Stock->Width = 90;
+			// 
+			// prodType
+			// 
+			this->prodType->HeaderText = L"Tipo de Producto";
+			this->prodType->MinimumWidth = 6;
+			this->prodType->Name = L"prodType";
+			this->prodType->Width = 160;
+			// 
 			// ProductSearchForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1028, 533);
+			this->Controls->Add(this->cmbProductType);
+			this->Controls->Add(this->label4);
 			this->Controls->Add(this->cmbSellerCompany);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->dataGridView1);
@@ -227,17 +264,43 @@ namespace ProjectApp {
 			this->Controls->Add(this->txtId);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
-			this->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"ProductSearchForm";
 			this->Text = L"Busqueda de Productos";
+			this->Load += gcnew System::EventHandler(this, &ProductSearchForm::ProductSearchForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
+	public:
+
+		void ClearControls() {
+			txtId->Clear();
+			textNameDescription->Clear();
+			cmbSellerCompany->SelectedIndex = -1;
+		}
+
+		void FillCmbSellerCompanies() {
+			cmbSellerCompany->Items->Clear();
+			List <SellerCompany^>^ sellerCompanyList = Controller::QueryAllSellerCompanies();
+			for (int i = 0; i < sellerCompanyList->Count; i++) {
+				cmbSellerCompany->Items->Add(sellerCompanyList[i]->Name);
+			}
+		}
+		void FillCmbTypes() {
+			cmbProductType->Items->Clear();
+			List <String^>^ productTypeList = Controller::QueryProductTypes();
+			for (int i = 0; i < productTypeList->Count; i++) {
+				cmbProductType->Items->Add(productTypeList[i]);
+
+			}
+		}
+
+
 	private: System::Void btnOk_Click(System::Object^ sender, System::EventArgs^ e) {
-		if (txtId->Text->Trim() != "") {
+		if (txtId->Text->Trim() != "" ) {
 			//Búsqueda de producto por el código ingresado por el usuario
 			Product^ p = Controller::QueryProductById(Convert::ToInt32(txtId->Text->Trim()));
 			//Se borran los datos del grid.
@@ -245,9 +308,55 @@ namespace ProjectApp {
 			dataGridView1->Rows->Add(gcnew array<String^> {
 				"" + p->Id,
 					p->Name,
-					Convert::ToString(p->Price),
-					Convert::ToString(p->Stock)
+					p->SellerCompany->Name,
+					Convert::ToString(p->Stock),
+					p->Type
 			});
+		}
+		else if (textNameDescription->Text->Trim() != "") {
+			//Búsqueda de productos por el nombre o descripción ingresado por el usuario
+			List<Product^>^ productList = Controller::QueryProductsByNameOrDescription(textNameDescription->Text->Trim());
+			//Se borran los datos del grid.
+			dataGridView1->Rows->Clear();
+			for (int i = 0; i < productList->Count; i++) {
+				dataGridView1->Rows->Add(gcnew array<String^> {
+					"" + productList[i]->Id,
+						productList[i]->Name,
+						productList[i]->SellerCompany->Name,
+						Convert::ToString(productList[i]->Stock),
+						productList[i]->Type
+				});
+			}
+		}
+		else if((cmbSellerCompany->SelectedIndex) != -1) {
+			//Busqueda por empresa proveedora
+			List<Product^>^ productList = Controller::QueryAllProductsBySeller((cmbSellerCompany->Items[cmbSellerCompany->SelectedIndex])->ToString());
+			//Se borran los datos del grid.
+			dataGridView1->Rows->Clear();
+			for (int i = 0; i < productList->Count; i++) {
+				dataGridView1->Rows->Add(gcnew array<String^> {
+					"" + productList[i]->Id,
+						productList[i]->Name,
+						productList[i]->SellerCompany->Name,
+						Convert::ToString(productList[i]->Stock),
+						productList[i]->Type
+				});
+			}
+		}
+		else if((cmbProductType->SelectedIndex) != -1) {
+			//Busqueda por tipo de producto
+			List<Product^>^ productList = Controller::QueryAllProductsByType((cmbProductType->Items[cmbProductType->SelectedIndex])->ToString());
+			//Se borran los datos del grid.
+			dataGridView1->Rows->Clear();
+			for (int i = 0; i < productList->Count; i++) {
+				dataGridView1->Rows->Add(gcnew array<String^> {
+					"" + productList[i]->Id,
+						productList[i]->Name,
+						productList[i]->SellerCompany->Name,
+						Convert::ToString(productList[i]->Stock),
+						productList[i]->Type
+				});
+			}
 		}
 		else {
 			//Búsqueda de productos por el nombre o descripción ingresado por el usuario
@@ -258,13 +367,23 @@ namespace ProjectApp {
 				dataGridView1->Rows->Add(gcnew array<String^> {
 					"" + productList[i]->Id,
 						productList[i]->Name,
-						Convert::ToString(productList[i]->Price),
-						Convert::ToString(productList[i]->Stock)
+						productList[i]->SellerCompany->Name,
+						Convert::ToString(productList[i]->Stock),
+						productList[i]->Type
 				});
 			}
+
 		}
 
 	}
 private: System::Void dataGridView1_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e);
+private: System::Void btnCancel_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->Close();
+}
+private: System::Void ProductSearchForm_Load(System::Object^ sender, System::EventArgs^ e) {
+	ClearControls();
+	FillCmbSellerCompanies();
+	FillCmbTypes();
+}
 };
 }

@@ -35,17 +35,8 @@ void ProjectController::Controller::LoadProductsData() {
     sr->Close();
 }
 
-List<Product^>^ ProjectController::Controller::QueryProductsByNameOrDescription(String^ value)
-{
-    LoadProductsData();
-    List<Product^>^ newProductList = gcnew List<Product^>();
-    for (int i = 0; i < productList->Count; i++) {
-        if (productList[i]->Name->Contains(value) ||
-            productList[i]->Description->Contains(value))
-            newProductList->Add(productList[i]);
-    }
-    return newProductList;
-}
+
+
 
 
 
@@ -188,7 +179,19 @@ String^ ProjectController::Controller::QueryTypeByName(String^ typeName)
     return nullptr;
 }
 
-/*Product^ ProjectController::Controller::QueryProductBySellerCompany(String^ sellerCompanyName)
+List<Product^>^ ProjectController::Controller::QueryProductsByNameOrDescription(String^ value)
+{
+    LoadProductsData();
+    List<Product^>^ newProductList = gcnew List<Product^>();
+    for (int i = 0; i < productList->Count; i++) {
+        if (productList[i]->Name->Contains(value) ||
+            productList[i]->Description->Contains(value))
+            newProductList->Add(productList[i]);
+    }
+    return newProductList;
+}
+
+Product^ ProjectController::Controller::QueryProductBySellerCompany(String^ sellerCompanyName)
 {
     LoadProductsData();
     for (int i = 0; i < productList->Count; i++) {
@@ -197,7 +200,18 @@ String^ ProjectController::Controller::QueryTypeByName(String^ typeName)
         }
     }
     return nullptr;
-}*/
+}
+
+List<Product^>^ ProjectController::Controller::QueryAllProductsBySeller(String^ sellerCompanyName)
+{
+    LoadProductsData();
+    List<Product^>^ newProductList = gcnew List<Product^>();
+    for (int i = 0; i < productList->Count; i++) {
+        if (productList[i]->SellerCompany->Name->Contains(sellerCompanyName))
+            newProductList->Add(productList[i]);
+    }
+    return newProductList;
+}
 
 Product^ ProjectController::Controller::QueryProductByType(String^ productType)
 {
@@ -208,6 +222,17 @@ Product^ ProjectController::Controller::QueryProductByType(String^ productType)
         }
     }
     return nullptr;
+}
+
+List<Product^>^ ProjectController::Controller::QueryAllProductsByType(String^ productType)
+{
+    LoadProductsData();
+    List<Product^>^ newProductList = gcnew List<Product^>();
+    for (int i = 0; i < productList->Count; i++) {
+        if (productList[i]->Type->Contains(productType))
+            newProductList->Add(productList[i]);
+    }
+    return newProductList;
 }
 
 int ProjectController::Controller::AddSellerCompany(SellerCompany^ sellerCompany)

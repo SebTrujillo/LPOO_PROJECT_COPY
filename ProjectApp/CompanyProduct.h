@@ -549,7 +549,7 @@ namespace ProjectApp {
 				}
 			}
 
-			void FillCmbStores() {
+			void FillCmbTypes() {
 				cmbType->Items->Clear();
 				List <String^>^ productTypeList = Controller::QueryProductTypes();
 				for (int i = 0; i < productTypeList->Count; i++) {
@@ -593,7 +593,8 @@ namespace ProjectApp {
 			   txtPrice->Clear();
 			   txtStock->Clear();
 			   pbCompProduct->Image = nullptr;
-			   cbxLearn->Checked = false;
+			   cmbSellerCompany->SelectedIndex = -1;
+			   cmbType->SelectedIndex = -1;
 		   }
 
 	private: System::Void btnUpdate_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -692,7 +693,7 @@ private: System::Void CompanyProduct_Load(System::Object^ sender, System::EventA
 	LoginCompany^ loginCompany = gcnew LoginCompany();
 	loginCompany->ShowDialog();
 	RefreshGrid();
-	FillCmbStores();
+	FillCmbTypes();
 	FillCmbSellerCompanies();
 	btnUpdate->Enabled = false;
 	btnDelete->Enabled = false;
