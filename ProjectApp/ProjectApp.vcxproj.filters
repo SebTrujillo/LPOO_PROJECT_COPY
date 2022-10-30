@@ -50,6 +50,11 @@
     <ClInclude Include="LoginCustomer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+
+    <ClInclude Include="..\LPOO_PROJECT\ComboBoxItem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ProjectApp.cpp">
@@ -85,6 +90,11 @@
     <ClCompile Include="LoginCustomer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+
+    <ClCompile Include="..\LPOO_PROJECT\ComboBoxItem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+
   </ItemGroup>
   <ItemGroup>
     <Image Include="app.ico">

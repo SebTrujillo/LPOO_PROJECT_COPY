@@ -128,6 +128,7 @@
     <ResourceCompile Include="app.rc" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\LPOO_PROJECT\ComboBoxItem.h" />
     <ClInclude Include="CompanyProduct.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -156,6 +157,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\LPOO_PROJECT\ComboBoxItem.cpp" />
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="CompanyProduct.cpp" />
     <ClCompile Include="CustomerForm.cpp" />
@@ -184,14 +186,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LPOO_PROJECT\LPOO_PROJECT.vcxproj">
-      <Project>{9b39fb0b-ecff-4dad-92fa-749f50aab75b}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\ProjectController\ProjectController.vcxproj">
-      <Project>{7a61c323-e6ef-4ed3-b0fd-99ce68ecf360}</Project>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="CompanyProduct.resx">
       <DependentUpon>CompanyProduct.h</DependentUpon>
     </EmbeddedResource>
@@ -216,6 +210,16 @@
     <EmbeddedResource Include="TransactionForm.resx">
       <DependentUpon>TransactionForm.h</DependentUpon>
     </EmbeddedResource>
+
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LPOO_PROJECT\LPOO_PROJECT.vcxproj">
+      <Project>{9b39fb0b-ecff-4dad-92fa-749f50aab75b}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\ProjectController\ProjectController.vcxproj">
+      <Project>{7a61c323-e6ef-4ed3-b0fd-99ce68ecf360}</Project>
+    </ProjectReference>
+
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

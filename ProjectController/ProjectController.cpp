@@ -13,23 +13,28 @@ void ProjectController::Controller::PersistProducts() {
 }
 
 void ProjectController::Controller::LoadProductsData() {
+
+    /*productList = gcnew List<Product^>();
+    //Lectura desde un archivo XML
+    Stream^ sr = nullptr;
+    try {
+        XmlSerializer^ Reader = gcnew XmlSerializer(productList->GetType());
+        StreamReader^ sr = gcnew StreamReader("Products.xml");
+        productList = (List<Product^>^) Reader->Deserialize(sr);
+    }
+    catch (FileNotFoundException^ ex) {
+    }
+    catch (Exception^ ex) {
+    }
+    finally {
+        if (sr != nullptr) sr->Close();
+    }*/
     XmlSerializer^ Reader = gcnew XmlSerializer(productList->GetType());
     StreamReader^ sr = gcnew StreamReader("Products.xml");
     productList = (List<Product^>^) Reader->Deserialize(sr);
     sr->Close();
 }
 
-List<Product^>^ ProjectController::Controller::QueryProductsByNameOrDescription(String^ value)
-{
-    LoadProductsData();
-    List<Product^>^ newProductList = gcnew List<Product^>();
-    for (int i = 0; i < productList->Count; i++) {
-        if (productList[i]->Name->Contains(value) ||
-            productList[i]->Description->Contains(value))
-            newProductList->Add(productList[i]);
-    }
-    return newProductList;
-}
 
 void ProjectController::Controller::PersistSellerCompanies() {
     XmlSerializer^ writer = gcnew XmlSerializer(sellerCompanyList->GetType());
@@ -170,6 +175,62 @@ String^ ProjectController::Controller::QueryTypeByName(String^ typeName)
     return nullptr;
 }
 
+List<Product^>^ ProjectController::Controller::QueryProductsByNameOrDescription(String^ value)
+{
+    LoadProductsData();
+    List<Product^>^ newProductList = gcnew List<Product^>();
+    for (int i = 0; i < productList->Count; i++) {
+        if (productList[i]->Name->Contains(value) ||
+            productList[i]->Description->Contains(value))
+            newProductList->Add(productList[i]);
+    }
+    return newProductList;
+}
+
+Product^ ProjectController::Controller::QueryProductBySellerCompany(String^ sellerCompanyName)
+{
+    LoadProductsData();
+    for (int i = 0; i < productList->Count; i++) {
+        if (sellerCompanyName == productList[i]->SellerCompany->Name) {
+            return productList[i];
+        }
+    }
+    return nullptr;
+}
+
+List<Product^>^ ProjectController::Controller::QueryAllProductsBySeller(String^ sellerCompanyName)
+{
+    LoadProductsData();
+    List<Product^>^ newProductList = gcnew List<Product^>();
+    for (int i = 0; i < productList->Count; i++) {
+        if (productList[i]->SellerCompany->Name->Contains(sellerCompanyName))
+            newProductList->Add(productList[i]);
+    }
+    return newProductList;
+}
+
+Product^ ProjectController::Controller::QueryProductByType(String^ productType)
+{
+    LoadProductsData();
+    for (int i = 0; i < productList->Count; i++) {
+        if (productType == productList[i]->Type) {
+            return productList[i];
+        }
+    }
+    return nullptr;
+}
+
+List<Product^>^ ProjectController::Controller::QueryAllProductsByType(String^ productType)
+{
+    LoadProductsData();
+    List<Product^>^ newProductList = gcnew List<Product^>();
+    for (int i = 0; i < productList->Count; i++) {
+        if (productList[i]->Type->Contains(productType))
+            newProductList->Add(productList[i]);
+    }
+    return newProductList;
+}
+
 int ProjectController::Controller::AddSellerCompany(SellerCompany^ sellerCompany)
 {
     sellerCompanyList->Add(sellerCompany);
@@ -219,6 +280,16 @@ SellerCompany^ ProjectController::Controller::QuerySellerCompanyById(int sellerC
         }
     return nullptr;
 }
+
+SellerCompany^ ProjectController::Controller::QuerySellerCompanyByName(String^ sellerCompanyName)
+{
+    for (int i = 0; i < sellerCompanyList->Count; i++)
+        if (sellerCompanyName == sellerCompanyList[i]->Name) {
+            return sellerCompanyList[i];
+        }
+    return nullptr;
+}
+
 int ProjectController::Controller::AddCustomerCompany(Company^ customerCompany)
 {
     customerCompanyList->Add(customerCompany);
@@ -261,7 +332,7 @@ List<Company^>^ ProjectController::Controller::QueryAllCustomerCompanies()
     return activeCustomerCompaniesList;
 
     //throw gcnew System::NotImplementedException();
-    // TODO: Insertar una instrucción "return" aquí
+    // TODO: Insertar una instrucciÃ³n "return" aquÃ­
 }
 
 Company^ ProjectController::Controller::QueryCustomerCompanyById(int customerCompanyId)
@@ -273,7 +344,7 @@ Company^ ProjectController::Controller::QueryCustomerCompanyById(int customerCom
     }
     return nullptr;
     //throw gcnew System::NotImplementedException();
-    // TODO: Insertar una instrucción "return" aquí
+    // TODO: Insertar una instrucciÃ³n "return" aquÃ­
 }
 
 void ProjectController::Controller::PersistCustomerCompanies()
@@ -334,7 +405,7 @@ List<Natural^>^ ProjectController::Controller::QueryAllCustomerNaturals()
 
 
     //throw gcnew System::NotImplementedException();
-    // TODO: Insertar una instrucción "return" aquí
+    // TODO: Insertar una instrucciÃ³n "return" aquÃ­
 }
 
 Natural^ ProjectController::Controller::QueryCustomerNaturalById(int naturalId)
@@ -345,7 +416,7 @@ Natural^ ProjectController::Controller::QueryCustomerNaturalById(int naturalId)
         }
     return nullptr;
     //throw gcnew System::NotImplementedException();
-    // TODO: Insertar una instrucción "return" aquí
+    // TODO: Insertar una instrucciÃ³n "return" aquÃ­
 }
 
 void ProjectController::Controller::PersistCustomerNaturals()

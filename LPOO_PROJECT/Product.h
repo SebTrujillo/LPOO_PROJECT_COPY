@@ -2,6 +2,7 @@
  * Project Untitled
  */
 #pragma once
+#include "SellerCompany.h"
 
 using namespace System;
 namespace  LPOOPROJECT {
@@ -17,6 +18,7 @@ namespace  LPOOPROJECT {
         property String^ Type;
         property String^ IsLearning;
         property int Rating;
+        property SellerCompany^ SellerCompany;
     };
     
 };

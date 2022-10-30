@@ -1,5 +1,6 @@
 #pragma once
 #include "LoginCompany.h"
+#include "ComboBoxItem.h"
 
 namespace ProjectApp {
 
@@ -85,16 +86,27 @@ namespace ProjectApp {
 	private: System::Windows::Forms::ToolStripMenuItem^ modificarProductoToolStripMenuItem;
 
 	private: System::Windows::Forms::CheckBox^ cbxLearn;
+
+
+
+
+
+
+	private: System::Windows::Forms::ToolStripMenuItem^ salirToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ reporteToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ consultasToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ modificarInformacionToolStripMenuItem;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ productID;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ productName;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ productType;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ productStock;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ productPrice;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ productLearn;
-	private: System::Windows::Forms::ToolStripMenuItem^ salirToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^ reporteToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^ consultasToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^ modificarInformacionToolStripMenuItem;
+
+	private: System::Windows::Forms::Label^ label8;
+	private: System::Windows::Forms::ComboBox^ cmbSellerCompany;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ productSellerCompany;
+
 
 	private:
 		/// <summary>
@@ -131,10 +143,12 @@ namespace ProjectApp {
 			this->productStock = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->productPrice = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->productLearn = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->productSellerCompany = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->archivoToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->nuevoProductoToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->modificarProductoToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->modificarInformacionToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->salirToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->reporteToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->consultasToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -142,7 +156,10 @@ namespace ProjectApp {
 			this->btnPhoto = (gcnew System::Windows::Forms::Button());
 			this->label7 = (gcnew System::Windows::Forms::Label());
 			this->cbxLearn = (gcnew System::Windows::Forms::CheckBox());
-			this->modificarInformacionToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+
+			this->label8 = (gcnew System::Windows::Forms::Label());
+			this->cmbSellerCompany = (gcnew System::Windows::Forms::ComboBox());
+
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbCompProduct))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvCompProduct))->BeginInit();
 			this->menuStrip1->SuspendLayout();
@@ -151,8 +168,9 @@ namespace ProjectApp {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(34, 40);
-			this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+
+			this->label1->Location = System::Drawing::Point(45, 49);
+
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(18, 13);
 			this->label1->TabIndex = 0;
@@ -161,8 +179,9 @@ namespace ProjectApp {
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(34, 69);
-			this->label2->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+
+			this->label2->Location = System::Drawing::Point(45, 85);
+
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(44, 13);
 			this->label2->TabIndex = 1;
@@ -171,8 +190,9 @@ namespace ProjectApp {
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(34, 99);
-			this->label3->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+
+			this->label3->Location = System::Drawing::Point(45, 122);
+
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(88, 13);
 			this->label3->TabIndex = 2;
@@ -181,18 +201,20 @@ namespace ProjectApp {
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(34, 129);
-			this->label4->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+
+			this->label4->Location = System::Drawing::Point(45, 159);
+
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(63, 13);
 			this->label4->TabIndex = 3;
-			this->label4->Text = L"Descripción";
+			this->label4->Text = L"DescripciÃ³n";
 			// 
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(34, 182);
-			this->label5->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+
+			this->label5->Location = System::Drawing::Point(45, 224);
+
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(35, 13);
 			this->label5->TabIndex = 4;
@@ -200,33 +222,41 @@ namespace ProjectApp {
 			// 
 			// txtId
 			// 
-			this->txtId->Location = System::Drawing::Point(160, 40);
-			this->txtId->Margin = System::Windows::Forms::Padding(2);
+
+			this->txtId->Location = System::Drawing::Point(213, 49);
+			this->txtId->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+
 			this->txtId->Name = L"txtId";
 			this->txtId->Size = System::Drawing::Size(92, 20);
 			this->txtId->TabIndex = 5;
 			// 
 			// txtName
 			// 
-			this->txtName->Location = System::Drawing::Point(160, 69);
-			this->txtName->Margin = System::Windows::Forms::Padding(2);
+
+			this->txtName->Location = System::Drawing::Point(213, 85);
+			this->txtName->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->txtName->Name = L"txtName";
-			this->txtName->Size = System::Drawing::Size(266, 20);
+			this->txtName->Size = System::Drawing::Size(353, 22);
+
 			this->txtName->TabIndex = 6;
 			// 
 			// txtDesc
 			// 
-			this->txtDesc->Location = System::Drawing::Point(160, 129);
-			this->txtDesc->Margin = System::Windows::Forms::Padding(2);
+
+			this->txtDesc->Location = System::Drawing::Point(213, 159);
+			this->txtDesc->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->txtDesc->Multiline = true;
 			this->txtDesc->Name = L"txtDesc";
-			this->txtDesc->Size = System::Drawing::Size(266, 44);
+			this->txtDesc->Size = System::Drawing::Size(353, 53);
+
 			this->txtDesc->TabIndex = 8;
 			// 
 			// txtStock
 			// 
-			this->txtStock->Location = System::Drawing::Point(160, 182);
-			this->txtStock->Margin = System::Windows::Forms::Padding(2);
+
+			this->txtStock->Location = System::Drawing::Point(213, 224);
+			this->txtStock->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+
 			this->txtStock->Name = L"txtStock";
 			this->txtStock->Size = System::Drawing::Size(92, 20);
 			this->txtStock->TabIndex = 9;
@@ -234,8 +264,9 @@ namespace ProjectApp {
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(34, 207);
-			this->label6->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+
+			this->label6->Location = System::Drawing::Point(45, 255);
+
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(37, 13);
 			this->label6->TabIndex = 10;
@@ -243,8 +274,10 @@ namespace ProjectApp {
 			// 
 			// txtPrice
 			// 
-			this->txtPrice->Location = System::Drawing::Point(160, 207);
-			this->txtPrice->Margin = System::Windows::Forms::Padding(2);
+
+			this->txtPrice->Location = System::Drawing::Point(213, 255);
+			this->txtPrice->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+
 			this->txtPrice->Name = L"txtPrice";
 			this->txtPrice->Size = System::Drawing::Size(92, 20);
 			this->txtPrice->TabIndex = 11;
@@ -252,18 +285,22 @@ namespace ProjectApp {
 			// pbCompProduct
 			// 
 			this->pbCompProduct->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
-			this->pbCompProduct->Location = System::Drawing::Point(458, 25);
-			this->pbCompProduct->Margin = System::Windows::Forms::Padding(2);
+
+			this->pbCompProduct->Location = System::Drawing::Point(611, 31);
+			this->pbCompProduct->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->pbCompProduct->Name = L"pbCompProduct";
-			this->pbCompProduct->Size = System::Drawing::Size(122, 145);
+			this->pbCompProduct->Size = System::Drawing::Size(161, 178);
+
 			this->pbCompProduct->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pbCompProduct->TabIndex = 12;
 			this->pbCompProduct->TabStop = false;
 			// 
 			// btnAdd
 			// 
-			this->btnAdd->Location = System::Drawing::Point(37, 271);
-			this->btnAdd->Margin = System::Windows::Forms::Padding(2);
+
+			this->btnAdd->Location = System::Drawing::Point(49, 371);
+			this->btnAdd->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+
 			this->btnAdd->Name = L"btnAdd";
 			this->btnAdd->Size = System::Drawing::Size(119, 26);
 			this->btnAdd->TabIndex = 13;
@@ -273,8 +310,10 @@ namespace ProjectApp {
 			// 
 			// btnUpdate
 			// 
-			this->btnUpdate->Location = System::Drawing::Point(253, 271);
-			this->btnUpdate->Margin = System::Windows::Forms::Padding(2);
+
+			this->btnUpdate->Location = System::Drawing::Point(337, 371);
+			this->btnUpdate->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+
 			this->btnUpdate->Name = L"btnUpdate";
 			this->btnUpdate->Size = System::Drawing::Size(119, 26);
 			this->btnUpdate->TabIndex = 14;
@@ -284,8 +323,10 @@ namespace ProjectApp {
 			// 
 			// btnDelete
 			// 
-			this->btnDelete->Location = System::Drawing::Point(458, 271);
-			this->btnDelete->Margin = System::Windows::Forms::Padding(2);
+
+			this->btnDelete->Location = System::Drawing::Point(613, 371);
+			this->btnDelete->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+
 			this->btnDelete->Name = L"btnDelete";
 			this->btnDelete->Size = System::Drawing::Size(119, 26);
 			this->btnDelete->TabIndex = 15;
@@ -296,12 +337,14 @@ namespace ProjectApp {
 			// dgvCompProduct
 			// 
 			this->dgvCompProduct->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dgvCompProduct->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(6) {
+			this->dgvCompProduct->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(7) {
 				this->productID,
-					this->productName, this->productType, this->productStock, this->productPrice, this->productLearn
+					this->productName, this->productType, this->productStock, this->productPrice, this->productLearn, this->productSellerCompany
 			});
-			this->dgvCompProduct->Location = System::Drawing::Point(37, 314);
-			this->dgvCompProduct->Margin = System::Windows::Forms::Padding(2);
+
+			this->dgvCompProduct->Location = System::Drawing::Point(49, 425);
+			this->dgvCompProduct->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+
 			this->dgvCompProduct->Name = L"dgvCompProduct";
 			this->dgvCompProduct->RowHeadersWidth = 51;
 			this->dgvCompProduct->RowTemplate->Height = 24;
@@ -351,6 +394,13 @@ namespace ProjectApp {
 			this->productLearn->Name = L"productLearn";
 			this->productLearn->Width = 125;
 			// 
+			// productSellerCompany
+			// 
+			this->productSellerCompany->HeaderText = L"Empresa Proveedora";
+			this->productSellerCompany->MinimumWidth = 6;
+			this->productSellerCompany->Name = L"productSellerCompany";
+			this->productSellerCompany->Width = 125;
+			// 
 			// menuStrip1
 			// 
 			this->menuStrip1->AllowMerge = false;
@@ -361,8 +411,10 @@ namespace ProjectApp {
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Padding = System::Windows::Forms::Padding(4, 2, 0, 2);
-			this->menuStrip1->Size = System::Drawing::Size(724, 24);
+
+			this->menuStrip1->Padding = System::Windows::Forms::Padding(5, 2, 0, 2);
+			this->menuStrip1->Size = System::Drawing::Size(1208, 28);
+
 			this->menuStrip1->TabIndex = 17;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -379,21 +431,33 @@ namespace ProjectApp {
 			// nuevoProductoToolStripMenuItem
 			// 
 			this->nuevoProductoToolStripMenuItem->Name = L"nuevoProductoToolStripMenuItem";
-			this->nuevoProductoToolStripMenuItem->Size = System::Drawing::Size(193, 22);
+
+			this->nuevoProductoToolStripMenuItem->Size = System::Drawing::Size(240, 26);
+
 			this->nuevoProductoToolStripMenuItem->Text = L"Nuevo Producto";
 			this->nuevoProductoToolStripMenuItem->Click += gcnew System::EventHandler(this, &CompanyProduct::nuevoProductoToolStripMenuItem_Click);
 			// 
 			// modificarProductoToolStripMenuItem
 			// 
 			this->modificarProductoToolStripMenuItem->Name = L"modificarProductoToolStripMenuItem";
-			this->modificarProductoToolStripMenuItem->Size = System::Drawing::Size(193, 22);
+
+			this->modificarProductoToolStripMenuItem->Size = System::Drawing::Size(240, 26);
+
 			this->modificarProductoToolStripMenuItem->Text = L"Modificar Producto";
 			this->modificarProductoToolStripMenuItem->Click += gcnew System::EventHandler(this, &CompanyProduct::modificarProductoToolStripMenuItem_Click);
+			// 
+			// modificarInformacionToolStripMenuItem
+			// 
+			this->modificarInformacionToolStripMenuItem->Name = L"modificarInformacionToolStripMenuItem";
+			this->modificarInformacionToolStripMenuItem->Size = System::Drawing::Size(240, 26);
+			this->modificarInformacionToolStripMenuItem->Text = L"Modificar Informacion";
 			// 
 			// salirToolStripMenuItem
 			// 
 			this->salirToolStripMenuItem->Name = L"salirToolStripMenuItem";
-			this->salirToolStripMenuItem->Size = System::Drawing::Size(193, 22);
+
+			this->salirToolStripMenuItem->Size = System::Drawing::Size(240, 26);
+
 			this->salirToolStripMenuItem->Text = L"Salir";
 			this->salirToolStripMenuItem->Click += gcnew System::EventHandler(this, &CompanyProduct::salirToolStripMenuItem_Click);
 			// 
@@ -401,21 +465,27 @@ namespace ProjectApp {
 			// 
 			this->reporteToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->consultasToolStripMenuItem });
 			this->reporteToolStripMenuItem->Name = L"reporteToolStripMenuItem";
-			this->reporteToolStripMenuItem->Size = System::Drawing::Size(60, 20);
+
+			this->reporteToolStripMenuItem->Size = System::Drawing::Size(76, 24);
+
 			this->reporteToolStripMenuItem->Text = L"Reporte";
 			// 
 			// consultasToolStripMenuItem
 			// 
 			this->consultasToolStripMenuItem->Name = L"consultasToolStripMenuItem";
-			this->consultasToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+
+			this->consultasToolStripMenuItem->Size = System::Drawing::Size(155, 26);
+
 			this->consultasToolStripMenuItem->Text = L"Consultas";
 			this->consultasToolStripMenuItem->Click += gcnew System::EventHandler(this, &CompanyProduct::consultasToolStripMenuItem_Click);
 			// 
 			// cmbType
 			// 
 			this->cmbType->FormattingEnabled = true;
-			this->cmbType->Location = System::Drawing::Point(160, 99);
-			this->cmbType->Margin = System::Windows::Forms::Padding(2);
+
+			this->cmbType->Location = System::Drawing::Point(213, 122);
+			this->cmbType->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+
 			this->cmbType->Name = L"cmbType";
 			this->cmbType->Size = System::Drawing::Size(141, 21);
 			this->cmbType->TabIndex = 18;
@@ -423,10 +493,12 @@ namespace ProjectApp {
 			// 
 			// btnPhoto
 			// 
-			this->btnPhoto->Location = System::Drawing::Point(473, 176);
-			this->btnPhoto->Margin = System::Windows::Forms::Padding(2);
+
+			this->btnPhoto->Location = System::Drawing::Point(631, 217);
+			this->btnPhoto->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->btnPhoto->Name = L"btnPhoto";
-			this->btnPhoto->Size = System::Drawing::Size(104, 33);
+			this->btnPhoto->Size = System::Drawing::Size(139, 41);
+
 			this->btnPhoto->TabIndex = 19;
 			this->btnPhoto->Text = L"Agregar imagen";
 			this->btnPhoto->UseVisualStyleBackColor = true;
@@ -435,35 +507,55 @@ namespace ProjectApp {
 			// label7
 			// 
 			this->label7->AutoSize = true;
-			this->label7->Location = System::Drawing::Point(34, 239);
-			this->label7->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+
+			this->label7->Location = System::Drawing::Point(45, 339);
+
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(194, 13);
 			this->label7->TabIndex = 22;
-			this->label7->Text = L"Producto diseñado para el aprendizaje\?";
+			this->label7->Text = L"Producto diseÃ±ado para el aprendizaje\?";
 			// 
 			// cbxLearn
 			// 
 			this->cbxLearn->AutoSize = true;
-			this->cbxLearn->Location = System::Drawing::Point(253, 239);
-			this->cbxLearn->Margin = System::Windows::Forms::Padding(2);
+
+			this->cbxLearn->Location = System::Drawing::Point(337, 338);
+			this->cbxLearn->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+
 			this->cbxLearn->Name = L"cbxLearn";
 			this->cbxLearn->Size = System::Drawing::Size(35, 17);
 			this->cbxLearn->TabIndex = 23;
 			this->cbxLearn->Text = L"Si";
 			this->cbxLearn->UseVisualStyleBackColor = true;
 			// 
-			// modificarInformacionToolStripMenuItem
+
+			// label8
 			// 
-			this->modificarInformacionToolStripMenuItem->Name = L"modificarInformacionToolStripMenuItem";
-			this->modificarInformacionToolStripMenuItem->Size = System::Drawing::Size(193, 22);
-			this->modificarInformacionToolStripMenuItem->Text = L"Modificar Informacion";
+			this->label8->AutoSize = true;
+			this->label8->Location = System::Drawing::Point(45, 297);
+			this->label8->Name = L"label8";
+			this->label8->Size = System::Drawing::Size(137, 16);
+			this->label8->TabIndex = 24;
+			this->label8->Text = L"Empresa Proveedora";
+			// 
+			// cmbSellerCompany
+			// 
+			this->cmbSellerCompany->FormattingEnabled = true;
+			this->cmbSellerCompany->Location = System::Drawing::Point(213, 294);
+			this->cmbSellerCompany->Name = L"cmbSellerCompany";
+			this->cmbSellerCompany->Size = System::Drawing::Size(187, 24);
+			this->cmbSellerCompany->TabIndex = 25;
+
 			// 
 			// CompanyProduct
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(724, 501);
+
+			this->ClientSize = System::Drawing::Size(1208, 617);
+			this->Controls->Add(this->cmbSellerCompany);
+			this->Controls->Add(this->label8);
+
 			this->Controls->Add(this->cbxLearn);
 			this->Controls->Add(this->label7);
 			this->Controls->Add(this->btnPhoto);
@@ -486,7 +578,9 @@ namespace ProjectApp {
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->menuStrip1);
 			this->MainMenuStrip = this->menuStrip1;
-			this->Margin = System::Windows::Forms::Padding(2);
+
+			this->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+
 			this->Name = L"CompanyProduct";
 			this->Text = L"Mantenimiento de Productos";
 			this->Load += gcnew System::EventHandler(this, &CompanyProduct::CompanyProduct_Load);
@@ -511,12 +605,13 @@ namespace ProjectApp {
 							"" + productList[i]->Type,
 							"" + productList[i]->Stock,
 							"" + productList[i]->Price,
-							productList[i]->IsLearning
+							productList[i]->IsLearning,
+							productList[i]->SellerCompany->Name
 					});
 				}
 			}
 
-			void FillCmbStores() {
+			void FillCmbTypes() {
 				cmbType->Items->Clear();
 				List <String^>^ productTypeList = Controller::QueryProductTypes();
 				for (int i = 0; i < productTypeList->Count; i++) {
@@ -524,6 +619,14 @@ namespace ProjectApp {
 
 				}
 			}
+			void FillCmbSellerCompanies() {
+				cmbSellerCompany->Items->Clear();
+				List <SellerCompany^>^ sellerCompanyList = Controller::QueryAllSellerCompanies();
+				for (int i = 0; i < sellerCompanyList->Count; i++) {
+						cmbSellerCompany->Items->Add(sellerCompanyList[i]->Name);
+				}
+			}
+
 	private: System::Void btnAdd_Click(System::Object^ sender, System::EventArgs^ e) {
 		Product^ p = gcnew Product();
 		p->Id = Int32::Parse(txtId->Text);
@@ -533,11 +636,16 @@ namespace ProjectApp {
 		p->Stock = Int32::Parse(txtStock->Text);
 		p->Type = Controller::QueryTypeByName(cmbType->Items[cmbType->SelectedIndex]->ToString());
 		p->IsLearning = cbxLearn->Checked ? "true" : "false";
+
+		SellerCompany^ sc = Controller::QuerySellerCompanyByName((cmbSellerCompany->Items[cmbSellerCompany->SelectedIndex])->ToString());
+		p->SellerCompany = sc;
+
 		if (pbCompProduct != nullptr && pbCompProduct->Image != nullptr) {
 			System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream();
 			pbCompProduct->Image->Save(ms, System::Drawing::Imaging::ImageFormat::Jpeg);
 			p->Photo = ms->ToArray();
 		}
+
 		Controller::AddProduct(p);
 		RefreshGrid();
 		ClearControls();
@@ -549,6 +657,10 @@ namespace ProjectApp {
 			   txtPrice->Clear();
 			   txtStock->Clear();
 			   pbCompProduct->Image = nullptr;
+
+			   cmbSellerCompany->SelectedIndex = -1;
+			   cmbType->SelectedIndex = -1;
+
 		   }
 
 	private: System::Void btnUpdate_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -558,8 +670,12 @@ namespace ProjectApp {
 		p->Description = txtDesc->Text;
 		p->Price = Double::Parse(txtPrice->Text);
 		p->Stock = Int32::Parse(txtStock->Text);
-		p->Type = Controller::QueryTypeByName(cmbType->Items[cmbType->SelectedIndex]->ToString());
+		p->Type = Controller::QueryTypeByName(cmbType->Items[cmbType->SelectedIndex]->ToString());//s->Store = Controller::QueryStoreById(((ComboBoxItem^)cmbStore->Items[cmbStore->SelectedIndex])->Value);
 		p->IsLearning = cbxLearn->Checked ? "true" : "false";
+
+		SellerCompany^ sc = Controller::QuerySellerCompanyByName((cmbSellerCompany->Items[cmbSellerCompany->SelectedIndex])->ToString());
+		p->SellerCompany = sc; // CASTEAR DE COMBOBOXITEM HACIA SELLERCOMPANY TYPE
+
 		if (pbCompProduct != nullptr && pbCompProduct->Image != nullptr) {
 			System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream();
 			pbCompProduct->Image->Save(ms, System::Drawing::Imaging::ImageFormat::Jpeg);
@@ -607,6 +723,22 @@ private: System::Void dgvCompProduct_CellClick(System::Object^ sender, System::W
 			break;
 		}
 
+	
+
+
+		txtPrice->Text = "" + p->Price;
+		txtStock->Text = "" + p->Stock;
+	}
+
+	for (int i = 0; i < cmbSellerCompany->Items->Count; i++) {
+		String^ cmbi = ((String^)cmbSellerCompany->Items[i]);
+		if (cmbi == p->SellerCompany->Name) {
+			cmbSellerCompany->SelectedIndex = i;
+			break;
+		}
+
+
+
 
 		txtPrice->Text = "" + p->Price;
 		txtStock->Text = "" + p->Stock;
@@ -629,7 +761,8 @@ private: System::Void CompanyProduct_Load(System::Object^ sender, System::EventA
 	LoginCompany^ loginCompany = gcnew LoginCompany();
 	loginCompany->ShowDialog();
 	RefreshGrid();
-	FillCmbStores();
+	FillCmbTypes();
+	FillCmbSellerCompanies();
 	btnUpdate->Enabled = false;
 	btnDelete->Enabled = false;
 	btnAdd->Enabled = false;

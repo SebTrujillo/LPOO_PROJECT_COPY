@@ -1,6 +1,8 @@
 #pragma once
 #include "ProductSearchForm.h"
+
 #include "Resource.h"
+
 
 namespace ProjectApp {
 
@@ -10,6 +12,9 @@ namespace ProjectApp {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+
+	using namespace LPOOPROJECT;
+
 
 	/// <summary>
 	/// Resumen de TransactionForm
@@ -21,13 +26,13 @@ namespace ProjectApp {
 		{
 			InitializeComponent();
 			//
-			//TODO: agregar código de constructor aquí
+			//TODO: agregar cÃ³digo de constructor aquÃ­
 			//
 		}
 
 	protected:
 		/// <summary>
-		/// Limpiar los recursos que se estén usando.
+		/// Limpiar los recursos que se estÃ©n usando.
 		/// </summary>
 		~TransactionForm()
 		{
@@ -39,6 +44,7 @@ namespace ProjectApp {
 	private: System::Windows::Forms::Label^ label1;
 	protected:
 	private: System::Windows::Forms::Label^ label2;
+
 	private: System::Windows::Forms::TextBox^ txtDate;
 
 	private: System::Windows::Forms::TextBox^ txtCustomer;
@@ -49,16 +55,6 @@ namespace ProjectApp {
 	private: System::Windows::Forms::Button^ btnDeleteProduct;
 	private: System::Windows::Forms::Button^ btnRegisterSale;
 	private: System::Windows::Forms::DataGridView^ dgvTransaction;
-
-
-
-
-
-
-
-
-
-
 
 
 	private: System::Windows::Forms::Label^ label3;
@@ -79,185 +75,22 @@ namespace ProjectApp {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	private:
 		/// <summary>
-		/// Variable del diseñador necesaria.
+		/// Variable del diseÃ±ador necesaria.
 		/// </summary>
 		System::ComponentModel::Container ^components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
-		/// Método necesario para admitir el Diseñador. No se puede modificar
-		/// el contenido de este método con el editor de código.
+		/// MÃ©todo necesario para admitir el DiseÃ±ador. No se puede modificar
+		/// el contenido de este mÃ©todo con el editor de cÃ³digo.
 		/// </summary>
 		void InitializeComponent(void)
 		{
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
+
 			this->txtDate = (gcnew System::Windows::Forms::TextBox());
 			this->txtCustomer = (gcnew System::Windows::Forms::TextBox());
 			this->btnSearchCustomer = (gcnew System::Windows::Forms::Button());
@@ -277,21 +110,25 @@ namespace ProjectApp {
 			this->QuantityProducts = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->SubTotal = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvTransaction))->BeginInit();
+
 			this->SuspendLayout();
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
+
 			this->label1->Location = System::Drawing::Point(69, 17);
 			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(54, 20);
+
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Fecha";
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
+
 			this->label2->Location = System::Drawing::Point(69, 72);
 			this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label2->Name = L"label2";
@@ -371,30 +208,36 @@ namespace ProjectApp {
 			this->dgvTransaction->Size = System::Drawing::Size(1054, 158);
 			this->dgvTransaction->TabIndex = 8;
 			this->dgvTransaction->CellValueChanged += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &TransactionForm::dgvTransaction_CellValueChanged);
+
 			// 
 			// label3
 			// 
 			this->label3->AutoSize = true;
+
 			this->label3->Location = System::Drawing::Point(650, 394);
 			this->label3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(73, 20);
+
 			this->label3->TabIndex = 9;
 			this->label3->Text = L"SubTotal";
 			// 
 			// label4
 			// 
 			this->label4->AutoSize = true;
+
 			this->label4->Location = System::Drawing::Point(650, 431);
 			this->label4->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(46, 20);
+
 			this->label4->TabIndex = 10;
 			this->label4->Text = L"I.G.V";
 			// 
 			// label5
 			// 
 			this->label5->AutoSize = true;
+
 			this->label5->Location = System::Drawing::Point(650, 469);
 			this->label5->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label5->Name = L"label5";
@@ -489,11 +332,13 @@ namespace ProjectApp {
 			this->Text = L" Venta realizada por";
 			this->Load += gcnew System::EventHandler(this, &TransactionForm::TransactionForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dgvTransaction))->EndInit();
+
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
+
 
 
 
@@ -504,12 +349,14 @@ private: System::Void btnAddProduct_Click(System::Object^ sender, System::EventA
 }
 	public: Void AddProductToSalesDetails(Product^ p) {
 		dgvTransaction->Rows->Add(gcnew array<String^> {
+
 			Convert::ToString(p->Id),
 				p->Name,
 				Convert::ToString(p->Price),
 				"1",
 				Convert::ToString(p->Price)
 		});
+
 		RefreshTotalAmounts();
 	}
 
@@ -535,6 +382,7 @@ private: System::Void dgvTransaction_CellValueChanged(System::Object^ sender,
 private: System::Void TransactionForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	txtDate->Text = DateTime::Now.ToString("dd/MM/yyyy");
 	//this->Text = "Venta realizada por " + Main::salesman->Name + " " + Main::salesman->LastName;
+
 }
 };
 }
