@@ -21,7 +21,7 @@ namespace ProjectController {
 		public:
 
 			//CRUD PRODUCTOS
-			static int AddProduct(Product^ product); // añadimos un producto nuevo al sistema
+			static int AddProduct(Product^ product); // aÃ±adimos un producto nuevo al sistema
 			static int UpdateProduct(Product^ product); // actualizamos atributos de un producto EXISTENTE
 			static int DeleteProduct(int productId); // borramos un producto existente
 			static List<Product^>^ QueryAllProducts(); // consulta todos los productos
@@ -31,10 +31,12 @@ namespace ProjectController {
 			static void PersistProducts();
 			static void LoadProductsData();
 			static List<Product^>^ QueryProductsByNameOrDescription(String^);
+
 			static Product^ QueryProductBySellerCompany(String^ sellerCompanyName);
 			static List<Product^>^ QueryAllProductsBySeller(String^ sellerCompanyName);
 			static Product^ QueryProductByType(String^ productType);
 			static List<Product^>^ QueryAllProductsByType(String^ productType);
+
 
 			//CRUD EMPRESAS PROVEEDORAS
 			static int AddSellerCompany(SellerCompany^ sellerCompany);
@@ -64,7 +66,7 @@ namespace ProjectController {
 			static void PersistCustomerCompanies();
 			static void LoadCustomerCompaniesData();
 			
-			//Autenticación de Vendedor
+			//AutenticaciÃ³n de Vendedor
 			static SellerCompany^ LoginCompany(String^ username, String^ password); 
 	};
 }

@@ -36,10 +36,6 @@ void ProjectController::Controller::LoadProductsData() {
 }
 
 
-
-
-
-
 void ProjectController::Controller::PersistSellerCompanies() {
     XmlSerializer^ writer = gcnew XmlSerializer(sellerCompanyList->GetType());
     StreamWriter^ sw = gcnew StreamWriter("SellerCompanies.xml");
@@ -284,6 +280,7 @@ SellerCompany^ ProjectController::Controller::QuerySellerCompanyById(int sellerC
         }
     return nullptr;
 }
+
 SellerCompany^ ProjectController::Controller::QuerySellerCompanyByName(String^ sellerCompanyName)
 {
     for (int i = 0; i < sellerCompanyList->Count; i++)
@@ -292,6 +289,7 @@ SellerCompany^ ProjectController::Controller::QuerySellerCompanyByName(String^ s
         }
     return nullptr;
 }
+
 int ProjectController::Controller::AddCustomerCompany(Company^ customerCompany)
 {
     customerCompanyList->Add(customerCompany);
@@ -334,7 +332,7 @@ List<Company^>^ ProjectController::Controller::QueryAllCustomerCompanies()
     return activeCustomerCompaniesList;
 
     //throw gcnew System::NotImplementedException();
-    // TODO: Insertar una instrucción "return" aquí
+    // TODO: Insertar una instrucciÃ³n "return" aquÃ­
 }
 
 Company^ ProjectController::Controller::QueryCustomerCompanyById(int customerCompanyId)
@@ -346,7 +344,7 @@ Company^ ProjectController::Controller::QueryCustomerCompanyById(int customerCom
     }
     return nullptr;
     //throw gcnew System::NotImplementedException();
-    // TODO: Insertar una instrucción "return" aquí
+    // TODO: Insertar una instrucciÃ³n "return" aquÃ­
 }
 
 void ProjectController::Controller::PersistCustomerCompanies()
@@ -407,7 +405,7 @@ List<Natural^>^ ProjectController::Controller::QueryAllCustomerNaturals()
 
 
     //throw gcnew System::NotImplementedException();
-    // TODO: Insertar una instrucción "return" aquí
+    // TODO: Insertar una instrucciÃ³n "return" aquÃ­
 }
 
 Natural^ ProjectController::Controller::QueryCustomerNaturalById(int naturalId)
@@ -418,7 +416,7 @@ Natural^ ProjectController::Controller::QueryCustomerNaturalById(int naturalId)
         }
     return nullptr;
     //throw gcnew System::NotImplementedException();
-    // TODO: Insertar una instrucción "return" aquí
+    // TODO: Insertar una instrucciÃ³n "return" aquÃ­
 }
 
 void ProjectController::Controller::PersistCustomerNaturals()

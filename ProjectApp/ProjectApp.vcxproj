@@ -210,6 +210,7 @@
     <EmbeddedResource Include="TransactionForm.resx">
       <DependentUpon>TransactionForm.h</DependentUpon>
     </EmbeddedResource>
+
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LPOO_PROJECT\LPOO_PROJECT.vcxproj">
@@ -218,6 +219,7 @@
     <ProjectReference Include="..\ProjectController\ProjectController.vcxproj">
       <Project>{7a61c323-e6ef-4ed3-b0fd-99ce68ecf360}</Project>
     </ProjectReference>
+
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
