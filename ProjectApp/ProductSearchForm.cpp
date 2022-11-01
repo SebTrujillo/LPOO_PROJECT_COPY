@@ -15,3 +15,5 @@ System::Void ProjectApp::ProductSearchForm::dgvSearchProducts_CellClick(System::
 	}
 	this->Close();
 }
+
+
